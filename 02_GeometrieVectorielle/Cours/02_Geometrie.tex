@@ -77,22 +77,21 @@ D'après cours de géométrie de Pierrick Soleillant \cite{PS}.
 
 \vspace{.2cm}
 
-
-\begin{obj}
-\textbf{Problématique :}
-\begin{itemize}
-\item M
-\end{itemize}
-\end{obj}
+%
+%\begin{obj}
+%\textbf{Problématique :}
+%\begin{itemize}
+%\item M
+%\end{itemize}
+%\end{obj}
 
 \begin{savoir}
 \textbf{Savoirs :}
 \begin{itemize}
-\item M
-\begin{itemize}
-\item M
-\item M
-\end{itemize}
+\item Manipuler des vecteurs, les repères et les différents systèmes de coordonnées
+\item Calculer un produit scalaire
+\item Calculer un produit vectoriel
+\item Calculer un produit mixte
 \end{itemize}
 \end{savoir}
 
@@ -129,10 +128,11 @@ On associe à un tel couple un objet appelé \textbf{vecteur}, noté $\vect{AB}$
 
 \footnotetext[1]{Attention à l'ordre : $A$ \textbf{puis} $B$.}
 
-\begin{defi}
-\textbf{Bipoints}
-? équipollents ?
-\end{defi}
+\begin{rem}
+\textbf{Bipoints équipollents}
+
+Le tracé de la <<flèche>> $(A,B)$ est appelé bipoint. Deux bipoints sont équipollents s'ils ont même direction, même sens et même norme. 
+\end{rem}
 
 \subsection{Règles de calcul}
 \begin{minipage}[c]{.7\linewidth}
@@ -898,6 +898,125 @@ Autrement dit, le produit vectoriel est \emph{invariant par permutation circulai
 \end{coro}
 
 
+\section{Champ de vecteurs}
+\subsection{Définition}
+\begin{defi}
+\textbf{Champ de vecteur}
+
+Un champ de vecteur est une application qui a tout point $A$ de l'espace fait correspondre un vecteur. 
+\end{defi}
+
+On représente graphiquement la valeur de ce champ au point 
+$A$ (c'est-à-dire le vecteur $\vect{V_A}$) par son représentant ayant pour origine le point $A$. 
+
+Un champ de vecteur peut dépendre de paramètres scalaires comme le temps par exemple. 
+
+\subsection{Exemple de champs}
+
+\begin{defi}
+\textbf{Champ uniforme}
+
+Les vecteurs du champ sont partout les mêmes. 
+
+\end{defi}
+
+\begin{defi}
+\textbf{Champ équiprojectif}
+
+Un champ est équiprojectif su quels que soient les points $A$ et $B$, on a : 
+$$
+\vect{AB}\cdot \vect{V_A} = \vect{AB}\cdot \vect{V_B} 
+$$
+
+\end{defi}
+
+\begin{rem}
+\begin{minipage}[c]{.47\linewidth}
+On peut diviser cette relation pour faire apparaître le vecteur unitaire : $\vect{u}=\dfrac{\vect{AB}}{||\vect{AB}||}$ : 
+$$
+\dfrac{\vect{AB}\cdot \vect{V_A} }{||\vect{AB}||} 
+=\dfrac{\vect{AB}\cdot \vect{V_B} }{||\vect{AB}||} 
+\quad \text{donc} \quad
+\vect{u}\cdot \vect{V_A} = \vect{u}\cdot \vect{V_B} 
+$$ 
+ En conséquence, $a=b$.
+
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\end{minipage}
+\end{rem}
+
+\section{Moments}
+
+\subsection{Moment en un point d'un pointeur}
+
+\begin{defi}
+\textbf{Pointeur}
+
+On appelle pointeur $(O,\vect{V})$ l'ensemble liant un point origine $O$ est un vecteur $\vect{V}$. 
+\end{defi}
+
+\begin{defi}
+\textbf{Moment en un point d'un pointeur}
+
+On définir le moment en un point $A$ du pointeur $(M,\vect{V})$ par : 
+$$
+\vect{\mathcal{M}(A,(M,\vect{V})} = ****
+$$
+
+Le moment est un vecteur (résultat d'un produit vectoriel) et on choisit de le représenter graphiquement par son représentant d'origine A. 
+
+$A$, $M$ et $\vect{V}$ appartiennent au même plan $\mathcal{P}$. 
+\end{defi}
+
+\begin{props}
+\begin{enumerate}
+\item Si le point $A$ est sur le support du pointeur $(M,\vect{V})$ les vecteurs $\vect{AM}$ et $\vect{V}$ sont colinéaires et le produit vectoriel est nul; donc : 
+$\vect{\mathcal{M}(A\in\text{support},(M,\vect{V})} =*** $.
+\item Soit un point $M'$ situé sur le support du pointeur $(M,\vect{V})$ (voir figure précédente). Calculons le moment en $A$ du pointeur $(M',\vect{V})$ :
+$\vect{\mathcal{M}(A,(M',\vect{V})} = \vect{AM'} \wedge \vect{V} = \left(\vect{AM}+\vect{MM'} \right)\wedge \vect{V} = ****$. Or $\vect{MM'}\wedge\vect{V}=\vect{0}$ car ce sont des vecteurs colinéaires. On a donc :
+$\vect{\mathcal{M}(A,(M',\vect{V})} = ***$.
+\item On ne change pas le moment d'un pointeur lorsqu'on déplace son origine sur son support. 
+\end{enumerate}
+\end{props}
+
+\begin{rem}
+\textit{Relation entre les moments en deux points différents d'un même pointeur}
+
+Calculons le moment un point $B$ du pointeur $(M,\vect{V})$. 
+\end{rem}
+
+
+\subsection{Moment d'un pointeur par rapport à un axe}
+\begin{defi}
+\begin{minipage}[c]{.47\linewidth}
+Considérons un axe $\Delta$ orienté de vecteur unitaire $\vect{u}$, un point $A$ de cet axe et le pointeur $(M,\vect{V})$. 
+
+Le moment de ce pointeur par rapport à l'axe $\Delta$ s'exprime par :
+$$
+\mathcal{M}(\Delta,(M,\vect{V}) =
+\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u}
+$$
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+
+\end{minipage}
+\end{defi}
+
+Le moment d'un pointeur par rapport à une droite est un scalaire positif ou négatif d'où l'importance de l'orientation de l'axe. 
+
+\begin{props}
+Exprimons ce moment en un point $B$ appartenant aussi à l'axe $\Delta$ :
+$\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = \vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} +****
+=\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} + ****$.
+
+On remarque que *****
+
+Conclusion, $\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = ****$ avec $A$ et $B$ appartenant à $\Delta$.
+
+Ceci justifie le fait que la notation du moment d'un pointeur par rapport à un axe ne fait pas intervenir de point. 
+
+\end{props}
 
 
 \begin{thebibliography}{2}
