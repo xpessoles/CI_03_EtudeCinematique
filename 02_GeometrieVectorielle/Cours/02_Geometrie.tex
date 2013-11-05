@@ -58,10 +58,7 @@ Ch 2 : Géométrie dans l'espace -- \ifthenelse{\boolean{prof}}{P}{E}%
  \LARGE\textsc{\xxsoustitre}
 \end{center}
 
-\begin{flushright}
-D'après cours de géométrie de Pierrick Soleillant \cite{PS}.
-\end{flushright}
-\vspace{.5cm}
+
 
 
 \begin{center}
@@ -100,6 +97,8 @@ D'après cours de géométrie de Pierrick Soleillant \cite{PS}.
  \renewcommand{\baselinestretch}{1}
 
 % \vspace{1cm}
+\textit{Les sections 1, 2, 3 et 4 sont lagement inspirées du cours de géométrie de P. Soleillant \cite{PS,DP}.}
+
 \textit{Ce document est en évolution permanente. Merci de signaler toutes
 erreurs ou coquilles.}
 
@@ -909,6 +908,14 @@ Un champ de vecteur est une application qui a tout point $A$ de l'espace fait co
 On représente graphiquement la valeur de ce champ au point 
 $A$ (c'est-à-dire le vecteur $\vect{V_A}$) par son représentant ayant pour origine le point $A$. 
 
+\begin{exemple}
+\textit{Champ des vecteurs vitesses pour un solide en translation uniforme et pour un solide en rotation uniforme.}
+
+\begin{center}
+\includegraphics[width=.5\textwidth]{png/champs}
+\end{center}
+
+\end{exemple}
 Un champ de vecteur peut dépendre de paramètres scalaires comme le temps par exemple. 
 
 \subsection{Exemple de champs}
@@ -923,7 +930,7 @@ Les vecteurs du champ sont partout les mêmes.
 \begin{defi}
 \textbf{Champ équiprojectif}
 
-Un champ est équiprojectif su quels que soient les points $A$ et $B$, on a : 
+Un champ est équiprojectif si quels que soient les points $A$ et $B$, on a : 
 $$
 \vect{AB}\cdot \vect{V_A} = \vect{AB}\cdot \vect{V_B} 
 $$
@@ -943,6 +950,10 @@ $$
 
 \end{minipage}\hfill
 \begin{minipage}[c]{.47\linewidth}
+
+\begin{center}
+\includegraphics[width=.8\textwidth]{png/equiproj}
+\end{center}
 \end{minipage}
 \end{rem}
 
@@ -959,23 +970,30 @@ On appelle pointeur $(O,\vect{V})$ l'ensemble liant un point origine $O$ est un 
 \begin{defi}
 \textbf{Moment en un point d'un pointeur}
 
+\begin{minipage}[c]{.5\linewidth}
 On définir le moment en un point $A$ du pointeur $(M,\vect{V})$ par : 
 $$
-\vect{\mathcal{M}(A,(M,\vect{V})} = ****
+\vect{\mathcal{M}(A,(M,\vect{V})} = \vect{AM}\wedge\vect{V}
 $$
 
 Le moment est un vecteur (résultat d'un produit vectoriel) et on choisit de le représenter graphiquement par son représentant d'origine A. 
 
 $A$, $M$ et $\vect{V}$ appartiennent au même plan $\mathcal{P}$. 
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{png/moment}
+\end{center}
+\end{minipage}
 \end{defi}
 
 \begin{props}
 \begin{enumerate}
 \item Si le point $A$ est sur le support du pointeur $(M,\vect{V})$ les vecteurs $\vect{AM}$ et $\vect{V}$ sont colinéaires et le produit vectoriel est nul; donc : 
-$\vect{\mathcal{M}(A\in\text{support},(M,\vect{V})} =*** $.
+$\vect{\mathcal{M}(A\in\text{support},(M,\vect{V})} = \vect{AM} \wedge \vect{V} =\vect{0}$.
 \item Soit un point $M'$ situé sur le support du pointeur $(M,\vect{V})$ (voir figure précédente). Calculons le moment en $A$ du pointeur $(M',\vect{V})$ :
-$\vect{\mathcal{M}(A,(M',\vect{V})} = \vect{AM'} \wedge \vect{V} = \left(\vect{AM}+\vect{MM'} \right)\wedge \vect{V} = ****$. Or $\vect{MM'}\wedge\vect{V}=\vect{0}$ car ce sont des vecteurs colinéaires. On a donc :
-$\vect{\mathcal{M}(A,(M',\vect{V})} = ***$.
+$\vect{\mathcal{M}(A,(M',\vect{V})} = \vect{AM'} \wedge \vect{V} = \left(\vect{AM}+\vect{MM'} \right)\wedge \vect{V} = \vect{AM}\wedge \vect{V}+\vect{MM'}\wedge \vect{V}$. Or $\vect{MM'}\wedge\vect{V}=\vect{0}$ car ce sont des vecteurs colinéaires. On a donc :
+$\vect{\mathcal{M}(A,(M',\vect{V})} = \vect{AM}\wedge \vect{V}$.
 \item On ne change pas le moment d'un pointeur lorsqu'on déplace son origine sur son support. 
 \end{enumerate}
 \end{props}
@@ -987,41 +1005,43 @@ Calculons le moment un point $B$ du pointeur $(M,\vect{V})$.
 \end{rem}
 
 
-\subsection{Moment d'un pointeur par rapport à un axe}
-\begin{defi}
-\begin{minipage}[c]{.47\linewidth}
-Considérons un axe $\Delta$ orienté de vecteur unitaire $\vect{u}$, un point $A$ de cet axe et le pointeur $(M,\vect{V})$. 
-
-Le moment de ce pointeur par rapport à l'axe $\Delta$ s'exprime par :
-$$
-\mathcal{M}(\Delta,(M,\vect{V}) =
-\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u}
-$$
-\end{minipage}\hfill
-\begin{minipage}[c]{.47\linewidth}
-
-\end{minipage}
-\end{defi}
-
-Le moment d'un pointeur par rapport à une droite est un scalaire positif ou négatif d'où l'importance de l'orientation de l'axe. 
-
-\begin{props}
-Exprimons ce moment en un point $B$ appartenant aussi à l'axe $\Delta$ :
-$\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = \vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} +****
-=\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} + ****$.
-
-On remarque que *****
-
-Conclusion, $\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = ****$ avec $A$ et $B$ appartenant à $\Delta$.
-
-Ceci justifie le fait que la notation du moment d'un pointeur par rapport à un axe ne fait pas intervenir de point. 
-
-\end{props}
+%\subsection{Moment d'un pointeur par rapport à un axe}
+%\begin{defi}
+%%\begin{minipage}[c]{.47\linewidth}
+%Considérons un axe $\Delta$ orienté de vecteur unitaire $\vect{u}$, un point $A$ de cet axe et le pointeur $(M,\vect{V})$. 
+%
+%Le moment de ce pointeur par rapport à l'axe $\Delta$ s'exprime par :
+%$$
+%\mathcal{M}(\Delta,(M,\vect{V}) =
+%\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u}
+%$$
+%%\end{minipage}\hfill
+%%\begin{minipage}[c]{.47\linewidth}
+%%\end{minipage}
+%\end{defi}
+%
+%Le moment d'un pointeur par rapport à une droite est un scalaire positif ou négatif d'où l'importance de l'orientation de l'axe. 
+%
+%\begin{props}
+%Exprimons ce moment en un point $B$ appartenant aussi à l'axe $\Delta$ :
+%$\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = \vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} +****
+%=\vect{\mathcal{M}(A,(M,\vect{V})}\cdot \vect{u} + ****$.
+%
+%On remarque que *****
+%
+%Conclusion, $\vect{\mathcal{M}(B,(M,\vect{V})}\cdot \vect{u} = ****$ avec $A$ et $B$ appartenant à $\Delta$.
+%
+%Ceci justifie le fait que la notation du moment d'un pointeur par rapport à un axe ne fait pas intervenir de point. 
+%
+%\end{props}
 
 
 \begin{thebibliography}{2}
 \bibitem[1]{PS} Pierrick Soleillant, Cours de Mathématiques de CPGE. Rappels de géométrie plane -- Géométrie plane élémentaire -- Géométrie dans l'espace élémentaire.
-   \bibitem[2]{cite1} Renault, \textit{Au c\oe{}ur de la technique}, \url{www.renault.com/fr/Innovation/au-coeur-de-la-technique/Pages/au-coeur-de-la-technique.aspx}.
+\bibitem[2]{DP} Daniel Perrin, Mathématiques d'école : Nombres, mesures et géométrie.
+\bibitem[3]{cite1} Renault, \textit{Au c\oe{}ur de la technique}, \url{www.renault.com/fr/Innovation/au-coeur-de-la-technique/Pages/au-coeur-de-la-technique.aspx}.
+\bibitem[4]{cite2} Wikipedia, \textit{Modélisation cinématique des mécanismes}, \url{http://fr.wikipedia.org/w/index.php?title=Mod\%C3\%A9lisation_cin\%C3\%A9matique_des_m\%C3\%A9canismes\&oldid=70679121}.
+\bibitem[5]{JPP} Jean-Pierre Pupier -- Calucul vectoriel -- PTSI -- Lycée Rouvière Toulon.
 \end{thebibliography}
 \end{document}
 
