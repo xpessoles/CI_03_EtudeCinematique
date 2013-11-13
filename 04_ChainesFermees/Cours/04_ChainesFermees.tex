@@ -17,7 +17,7 @@ CI 3 -- CIN : Étude du comportement cinématique des systèmes}{
 \def\xxsoustitre{\ifthenelse{\boolean{xp}}{
 Chapitre 4 -- Étude des chaînes fermées :
 
-Détermination des lois Entrée -- Sorties }{
+Détermination des lois Entrée -- Sortie}{
 }}
 
 
@@ -29,12 +29,12 @@ Xavier \textsc{Pessoles}}{
 
 \def\xxpied{\ifthenelse{\boolean{xp}}{
 CI 4 : CIN -- Cours \\
-Ch 4 : Chaînes fermées -- Lois entrée -- sortie -- \ifthenelse{\boolean{prof}}{P}{E}%
+Ch 4 : Chaînes fermées -- Loi entrée -- sortie -- \ifthenelse{\boolean{prof}}{P}{E}%
 }{
 }}
 
 \usepackage[%
-    pdftitle={CIN : Chaînes fermées -- Lois entrée -- sortie},
+    pdftitle={CIN : Chaînes fermées -- Loi entrée -- sortie},
     pdfauthor={Xavier Pessoles},
     colorlinks=true,
     linkcolor=blue,
@@ -53,6 +53,7 @@ Ch 4 : Chaînes fermées -- Lois entrée -- sortie -- \ifthenelse{\boolean{prof}
 
 \begin{center}
  \huge\textsc{\xxtitre}
+
 \end{center}
 
 \begin{center}
@@ -60,21 +61,28 @@ Ch 4 : Chaînes fermées -- Lois entrée -- sortie -- \ifthenelse{\boolean{prof}
 \end{center}
 
 
-
-
+\begin{minipage}[c]{.3\linewidth}
 \begin{center}
-\begin{tabular}{ccccc}
-\includegraphics[height=2.5cm]{png/avion} &&
-\includegraphics[height=3.5cm]{png/moteur_3d} && 
-\includegraphics[height=3.5cm]{png/moteur_3d_sch}\\
-\textit{Trainer Solo Sport \cite{cite1}} &&
-\textit{Modèle CAO d'un} &&
-\textit{Modélisation par}\\
- &&
-\textit{moteur de modélisme \cite{cite2}} &&
-\textit{schéma cinématique}\\
-\end{tabular}
+\includegraphics[height=2.5cm]{png/avion}
+
+\textit{Trainer Solo Sport \cite{cite1}} 
 \end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{png/moteur_3d}
+
+\textit{Modèle CAO d'un moteur de modélisme \cite{cite2}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{png/moteur_3d_sch}
+
+\textit{Modélisation par schéma cinématique}
+\end{center}
+\end{minipage}
+
 
 \begin{savoir}
 \textbf{Savoirs :}
@@ -119,6 +127,7 @@ Les chaînes ouvertes & Les chaînes fermées & Les chaînes complexes \\
 \end{tabular}
 \end{center}
 \end{defi}
+
 \section{Détermination des lois entrées -- sorties}
 \subsection{Introduction}
 
@@ -141,20 +150,14 @@ On s'intéresse donc à l'expression du paramètre de sortie en fonction du para
 \end{center}
 
 Position du point $O_1$ par rapport au point $O_0$ dans le repère $\mathcal{R}_0$ : 
-$$
-\vect{O_0 O_1}= a\vect{x_0}+b\vect{y_0}+c\vect{z_0}
-$$
+$ \vect{O_0 O_1}= a\vect{x_0}+b\vect{y_0}+c\vect{z_0} $
 
 Position du point $O_2$ par rapport au point $O_1$ dans le repère $\mathcal{R}_1$ : 
-$$
-\vect{O_1 O_2}(t)= d\vect{x_1}
-$$
+$ \vect{O_1 O_2}(t)= d\vect{x_1} $
 
 
 Position du point $O_3$ par rapport au point $O_2$ dans le repère $\mathcal{R}_2$ : 
-$$
-\vect{O_2 O_3}= e\vect{x_2}
-$$
+$ \vect{O_2 O_3}= e\vect{x_2} $
 
 %Le point $O_2$ est donc immobile dans le repère $\mathcal{R}_1$.
 
@@ -174,12 +177,24 @@ $$
 \begin{minipage}[c]{.6\linewidth}
 Le système a été paramétré ci-dessus. 
 
-Exprimons l'angle $\varphi(t)$ en fonction de $\alpha(t)$ et $\beta(t)$:
+On peut définir l'angle $\varphi(t)$ ainsi :
 $$
-\varphi + \left(\pi-\beta\right)+\left(\dfrac{\pi}{2}-\alpha\right) = \pi 
+\gamma(t)
+=\pi + \left(\dfrac{\pi}{2}-\varphi(t)\right)
+= \dfrac{3 \pi}{2}-\varphi(t)
+$$
+Dans le triangle $O_1 O_2 O_3$, la somme des angles est $\pi$, on a donc : 
+$$
+\left( \dfrac{\pi}{2} - \alpha(t) \right) + \left(\pi-\beta(t)\right) + \varphi = \pi
 \Longleftrightarrow
-\varphi = \beta+\alpha-\dfrac{\pi}{2}
+\left( \dfrac{\pi}{2} - \alpha(t) \right) + \left(\pi-\beta(t)\right) +  \dfrac{3 \pi}{2}-\gamma(t) = \pi
 $$
+
+$$
+2\pi - \alpha(t) -\beta(t) -\gamma(t) = 0
+$$
+
+
 \end{minipage}\hfill
 \begin{minipage}[c]{.35\linewidth}
 \begin{center}
@@ -224,24 +239,40 @@ Dans le cas d'un système bielle-manivelle comme le moteur de modélisme, on veu
 La fermeture géométrique est donc la suivante : 
 \begin{eqnarray*}
 \vect{O_1 O_2} + \vect{O_2 O_3} +\vect{O_3 O_1} = \vect{0} \\
-\Longleftrightarrow d\vect{x_1} + e \vect{x_2} - \lambda \vect{y_0}  = \vect{0}
+\Longleftrightarrow d\vect{x_1} + e \vect{x_2} - \lambda(t) \vect{y_0}  = \vect{0}
 \end{eqnarray*}
 
-
-
+Exprimons $\vect{x_1}$ et $\vect{x_2}$ dans la base $\mathcal{R}_0$ :
+$$
+\left\{
+\begin{array}{lcl}
+\vect{x_1} & = & \cos \alpha(t) \vect{x_0} + \sin \alpha(t) \vect{y_0} \\
+\vect{x_2} & = & \cos \beta(t) \vect{x_1} + \sin \beta(t) \vect{y_1} \\
+ & = & \cos \beta(t) \left( \cos \alpha(t) \vect{x_0} + \sin \alpha(t) \vect{y_0} \right) + 
+\sin \beta(t) \left( \cos \alpha(t) \vect{y_0} - \sin \alpha(t) \vect{x_0} \right) \\
+\end{array}
+\right.
+$$
 En projetant l'équation vectorielle sur $\vect{x_0}$ et $\vect{y_0}$ on a : 
 $$
 \left\{
 \begin{array}{l}
-d\cos\alpha - e \sin \varphi = 0 \\
-d\sin\alpha + e \cos \varphi - \lambda= 0 \\
+d\cos\alpha + e \cos\beta \cos\alpha - e \sin\beta \sin\alpha = 0 \\
+d\sin\alpha +  e \cos\beta \sin\alpha + e \sin\beta \cos\alpha- \lambda= 0 \\
 \end{array}
 \right.
 \Longleftrightarrow 
 \left\{
 \begin{array}{l}
-\sin \varphi = \dfrac{d\cos\alpha}{e}  \\
-\cos \varphi = \dfrac{\lambda - d\sin\alpha}{e} \\
+d\cos\alpha+ e \cos\left(\beta +\alpha\right)  = 0 \\
+d\sin\alpha +  e \sin\left(\beta +\alpha\right) - \lambda= 0 \\
+\end{array}
+\right.
+\Longleftrightarrow 
+\left\{
+\begin{array}{l}
+e \cos\left(\beta +\alpha\right)  = - \dfrac{d\cos\alpha}{e} \\
+e \sin\left(\beta +\alpha\right) =  \dfrac{\lambda - d\sin\alpha}{e}
 \end{array}
 \right.
 $$
@@ -250,12 +281,12 @@ En passant au carré et en sommant les deux expressions, on a donc :
 $$
 \left(\dfrac{d\cos\alpha}{e}\right)^2 + \left(\dfrac{\lambda - d\sin\alpha}{e}\right)^2 = 1 
 \Longleftrightarrow
-d^2\cos^2\alpha + \lambda^2 + d^2\sin^2\alpha +2d\lambda\sin\alpha = e^2
+d^2\cos^2\alpha + \lambda^2 + d^2\sin^2\alpha -2d\lambda\sin\alpha = e^2
 $$
 
 $$
 \Longleftrightarrow
-d^2+ \lambda^2 +2d\lambda\sin\alpha = e^2
+d^2+ \lambda^2 - 2d\lambda\sin\alpha = e^2
 $$
 Pour exprimer $\lambda$ en fonction de $\alpha$, il faut donc résoudre une équation du second degré. Pour exprimer $\alpha$ en fonction de $\lambda$, la méthode est directe. 
 
@@ -318,11 +349,11 @@ On donne :
 Le mécanisme est tel que : $\left( \vect{OC},\vect{OA}\right) = \left( \vect{DC},\vect{DE}\right)=\dfrac{\pi}{2} $  constamment (solides indéformables).
 \begin{enumerate}
 \item Faire le graphe de structure du mécanisme.
-\item Tracer en vue orthogonale, les trois dessins permettant le passage de $\mathcal{R}$ à $\mathcal{R}_2$, de $\mathcal{R}_2$  à $\mathcal{R}_3$ et de $\mathcal{R}$  à $\mathcal{R}_4$. Le repère $\mathcal{R}_3$ est-il lié complètement au solide 3 ? Justifiez.
+\item Tracer en vue orthogonale, les trois dessins permettant le passage de $\mathcal{R}$ à $\mathcal{R}_2$, de $\mathcal{R}_2$  à $\mathcal{R}_3$ et de $\mathcal{R}$  à $\mathcal{R}_4$.% Le repère $\mathcal{R}_3$ est-il lié complètement au solide 3 ? Justifiez.
 \item Écrire une relation géométrique traduisant la non déformation de 3 et qui permet d'établir une relation entre un axe de $\mathcal{R}_3$  à un axe de $\mathcal{R}_4$.
-\item Développer cette relation et trouver la loi entrée sortie : $\theta = f(\beta , \gamma)$. Faire la vérification d'homogénéité. Vérifier le signe et une valeur particulière (rédiger ces vérifications).
+\item Développer cette relation et trouver la loi entrée sortie : $\theta = f(\beta , \gamma)$. %Faire la vérification d'homogénéité. Vérifier le signe et une valeur particulière (rédiger ces vérifications).
 \item Dériver cette relation par rapport au temps pour trouver la vitesse de sortie  $\dot{\theta}=\dfrac{d\theta(t)}{dt}$ en fonction de la vitesse d'entrée $\dot{\beta}$, $\beta$ et $\gamma$.
-\item Prendre $\gamma= 60\textdegree$ et tracer $\theta = f(\beta, \gamma)$ pour un tour complet de 2. Porter les valeurs numériques caractéristiques.
+%\item Prendre $\gamma= 60\textdegree$ et tracer $\theta = f(\beta, \gamma)$ pour un tour complet de 2. Porter les valeurs numériques caractéristiques.
 \end{enumerate}
 
 \end{exemple}
@@ -336,7 +367,7 @@ Dans le cas où le mécanisme réduit ou augmente la vitesse (réducteur ou mult
 
 \begin{thebibliography}{2}
 \bibitem[1]{cite1} Trainer Solo Sport, \textit{Avio et Tiger}, \url{http://www.net-loisirs.com/trainer-solo-sport-p1155.html}.
-\bibitem[2]{cite2} Université Bretagne Sud, \textit{Moteur de modélisme} \url{http://foad.univ-ubs.fr/file.php/1355/TP_meca3d/Moteur_modelisme.zip}
+\bibitem[2]{cite2} Université Bretagne Sud, \textit{Moteur de modélisme} \url{http://foad.univ-ubs.fr/file.php/1355/TP_meca3d/Moteur_modelisme.zip}.
 \bibitem[3]{JPP} Jean-Pierre Pupier -- Paramétrage -- PTSI -- Lycée Rouvière Toulon.
 \end{thebibliography}
 \end{document}
