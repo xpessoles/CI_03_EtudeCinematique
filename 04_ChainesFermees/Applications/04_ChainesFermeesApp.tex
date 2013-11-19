@@ -25,7 +25,7 @@
 
 
 \newboolean{prof}
-\setboolean{prof}{false}
+\setboolean{prof}{true}
 %------------- En tetes et Pieds de Pages ------------
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
@@ -71,7 +71,7 @@
 
 \begin{center}
  \large\textsc{Chapitre 4 -- Étude des chaînes fermées :
-Détremination des lois Entrées -- Sorties}
+Détermination des lois Entrées -- Sorties}
 \end{center}
 
 \begin{center}
@@ -85,15 +85,25 @@ Détremination des lois Entrées -- Sorties}
 \subsection*{Exercice 1 -- Poussoir et roulette}
  
 \begin{center}
-\includegraphics[width=.6\textwidth]{png/fig1_1} 
+\includegraphics[width=.6\textwidth]{png/fig1_1b} 
 \end{center}
 Fonctionnement : La rotation de 1 (entrée) fait mouvoir 3 (sortie).
 
 \subparagraph{}
-\textit{Définir les différents repères liés aux solides. Dessinr les axes sur le schéma.}
+\textit{Définir les différents repères liés aux solides. Dessiner les axes sur le schéma.}
 
 \ifthenelse{\boolean{prof}}{
 \begin{corrige}
+\begin{center}
+\includegraphics[width=.6\textwidth]{png/fig1_1c} 
+\end{center}
+On a les repères suivants :
+\begin{itemize}
+\item $\mathcal{R}_0=\left(B,\vect{x_0},\vect{y_0},\vect{z_0} \right)$ lié à 0;
+\item $\mathcal{R}_1=\left(B,\vect{x_1},\vect{y_1},\vect{z_0} \right)$ lié à 1;
+\item $\mathcal{R}_2=\left(A,\vect{x_2},\vect{y_2},\vect{z_0}\right)$ lié à 2;
+\item $\mathcal{R}_3=\left(E,\vect{x_0},\vect{y_0},\vect{z_0} \right)$ lié à 3.
+\end{itemize}
 \end{corrige}
 }{}
 
@@ -102,6 +112,19 @@ Fonctionnement : La rotation de 1 (entrée) fait mouvoir 3 (sortie).
 
 \ifthenelse{\boolean{prof}}{
 \begin{corrige}
+Il est possible de définir les paramètres géométriques constants suivants : 
+\begin{itemize}
+\item $\vect{BA} = R\vect{x_1}$;
+\item $\vect{AC} = r\vect{x_2}$ et $\vect{DA} = r\vect{y_0}$;
+\item $\vect{BF} = a\vect{x_0}-b\vect{y_0}$.
+\end{itemize}
+
+Les paramètres angulaires permettant le changements de repères sont donnés par les figures suivantes: 
+\begin{center}
+\includegraphics[width=.6\textwidth]{png/fig1_2c} 
+\end{center}
+
+On peut par ailleurs définir $\lambda$ tel que $\vect{FE} = \lambda \vect{y_0}$ ou encore $\mu_1(t)$ et $\mu_2(t)$ tels que $\vect{BD} = \mu_1(t) \vect{x_0}+\mu_2(t) \vect{y_0}$
 \end{corrige}
 }{}
 
@@ -110,6 +133,23 @@ Fonctionnement : La rotation de 1 (entrée) fait mouvoir 3 (sortie).
 
 \ifthenelse{\boolean{prof}}{
 \begin{corrige}
+On peut par exemple écrire la fermeture de chaîne vectorielle suivante :
+$$
+\vect{BA}+\vect{AD}+\vect{DB}=\vect{0} 
+$$
+
+En projetant cette loi sur $\vect{y_0}$ on obtient : 
+$$
+\vect{BA}\cdot\vect{y_0}+\vect{AD}\cdot\vect{y_0}+\vect{DB}\cdot\vect{y_0}=0
+\Longleftrightarrow
+R\vect{x_1}\cdot\vect{y_0} - r\vect{y_0}\cdot\vect{y_0}- \mu_1(t) \vect{x_0}\cdot\vect{y_0}-\mu_2(t) \vect{y_0}\cdot\vect{y_0} = 0
+$$
+$$
+\Longleftrightarrow
+R\cos\left( \dfrac{\pi}{2}-\alpha(t)\right) - r-\mu_2(t)=0
+$$
+On a donc $R\sin\alpha(t) - r-\mu_2(t)=0$ soit :
+$$\mu_2(t)=R\sin\alpha(t) - r$$
 \end{corrige}
 }{}
 
@@ -119,6 +159,8 @@ Fonctionnement : La rotation de 1 (entrée) fait mouvoir 3 (sortie).
 
 \ifthenelse{\boolean{prof}}{
 \begin{corrige}
+En dérivant l'expression précédente, on a donc 
+$$\dot{\mu_2(t)}{dt}=\dot{\alpha(t)}R\cos\alpha(t) $$
 \end{corrige}
 }{}
 
@@ -142,6 +184,14 @@ Soignez l'écriture (les indices doivent être parfaitement lisibles).
 
 \ifthenelse{\boolean{prof}}{
 \begin{corrige}
+On a les repères suivants :
+\begin{itemize}
+\item $\mathcal{R}_0=\left(A,\vect{x_0},\vect{y_0},\vect{z_0} \right)$ lié à 0;
+\item $\mathcal{R}_1=\left(A,\vect{x_1},\vect{y_1},\vect{z_0} \right)$ lié à 1 (autre origine possible : $B$);
+\item $\mathcal{R}_2=\left(C,\vect{x_2},\vect{y_2},\vect{z_0}\right)$ lié à 2;
+\item $\mathcal{R}_3=\left(E,\vect{x_2},\vect{y_2},\vect{z_0}\right)$ lié à 3 (autre origine possible : $D$);
+\item $\mathcal{R}_4=\left(E,\vect{x_0},\vect{y_0},\vect{z_0} \right)$ lié à 4.
+\end{itemize}
 \end{corrige}
 }{}
 
@@ -217,12 +267,13 @@ La modélisation suivante est proposée.
 \includegraphics[width=.7\textwidth]{png/fig3_4} 
 \end{center}
 
+On appelle : 
 \begin{itemize}
-\item Soit $\mathcal{R}$ le repère lié au solide $R$ considéré comme fixe. $\mathcal{R}=\left(O,\vect{x},\vect{y},\vect{z} \right)$.
-\item Soit $\mathcal{R}'$ le repère lié au solide R considéré comme fixe. $\mathcal{R}'=\left(O,\vect{u},\vect{v},\vect{z} \right)$. On pose $\alpha = \left(\vect{y},\vect{v} \right)$ (constant).
-\item $\alpha$ est appelé "angle de brisure".
-\item Soit $\mathcal{R}_1$ le repère lié au solide 1. $\mathcal{R}_1 = \left(O,\vect{x_1},\vect{y},\vect{z_1} \right)$. On pose  $\theta_1 = \left(\vect{x},\vect{x_1} \right)$.
-\item Soit $\mathcal{R}_3$ le repère lié au solide 3. $\mathcal{R}_3 = \left(O,\vect{x_3},\vect{v},\vect{z_3} \right)$. On pose $\theta_3 = \left(\vect{u},\vect{x_3} \right)$.
+\item $\mathcal{R}$ le repère lié au solide $R$ considéré comme fixe. $\mathcal{R}=\left(O,\vect{x},\vect{y},\vect{z} \right)$;
+\item $\mathcal{R}'$ le repère lié au solide R considéré comme fixe. $\mathcal{R}'=\left(O,\vect{u},\vect{v},\vect{z} \right)$. On pose $\alpha = \left(\vect{y},\vect{v} \right)$ (constant);
+\item $\alpha$ l'"angle de brisure";
+\item $\mathcal{R}_1$ le repère lié au solide 1. $\mathcal{R}_1 = \left(O,\vect{x_1},\vect{y},\vect{z_1} \right)$. On pose  $\theta_1 = \left(\vect{x},\vect{x_1} \right)$;
+\item $\mathcal{R}_3$ le repère lié au solide 3. $\mathcal{R}_3 = \left(O,\vect{x_3},\vect{v},\vect{z_3} \right)$. On pose $\theta_3 = \left(\vect{u},\vect{x_3} \right)$.
 \end{itemize}
 
 \subparagraph{}
