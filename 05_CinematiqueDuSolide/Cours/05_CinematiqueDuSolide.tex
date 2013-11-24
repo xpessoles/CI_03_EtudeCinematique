@@ -1,0 +1,131 @@
+\documentclass[10pt,oneside]{article}
+\input{style/coursHeadings}
+
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+
+\def\xxtitre{\ifthenelse{\boolean{xp}}{
+CI 3 -- CIN : Étude du comportement cinématique des systèmes}{
+}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 5 -- Cinématique du solide indéformable}{
+}}
+
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+\noindent 2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+}}
+
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 3 : CIN -- Cours \\
+Ch 4 : Cinématique du solide -- \ifthenelse{\boolean{prof}}{P}{E}%
+}{
+}}
+
+\usepackage[%
+    pdftitle={CIN : Cinématique du solide},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\usepackage{pifont}
+\sloppy
+\hyphenpenalty 10000
+
+
+\begin{document}
+
+
+\input{style/entete1}
+
+\begin{center}
+ \huge\textsc{\xxtitre}
+
+\end{center}
+
+\begin{center}
+ \LARGE\textsc{\xxsoustitre}
+\end{center}
+
+
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+%\includegraphics[height=2.5cm]{png/avion}
+
+%\textit{Trainer Solo Sport \cite{cite1}} 
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+%\includegraphics[height=3.5cm]{png/moteur_3d}
+
+%\textit{Modèle CAO d'un moteur de modélisme \cite{cite2}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+%\includegraphics[height=3.5cm]{png/moteur_3d_sch}
+
+%\textit{Modélisation par schéma cinématique}
+\end{center}
+\end{minipage}
+
+
+\begin{savoir}
+\textbf{Savoirs :}
+\begin{itemize}
+\item %Rés-C1.1 : Fermeture géométrique.
+\end{itemize}
+\end{savoir}
+
+\setlength{\parskip}{0ex plus 0.2ex minus 0ex}
+ \renewcommand{\contentsname}{}
+ \renewcommand{\baselinestretch}{1}
+
+
+
+\textit{Ce document est en évolution permanente. Merci de signaler toutes erreurs ou coquilles.}
+\tableofcontents
+
+ \renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+
+\section{Avant propos}
+
+\subsection{Notion de solide indéformable}
+\subsection{Notion de point appartenant à un solide}
+
+\section{Trajectoire d'un point appartenant à un solide}
+
+\section{Vitesse d'un point appartenant à un solide}
+
+\subsection{Définition du vecteur vitesse}
+\subsection{Vecteur instantané de rotation}
+\subsection{Champ des vecteurs vitesses des points d'un solide}
+
+
+
+
+\section{Accélération d'un point appartenant à un solide}
+
+
+\begin{thebibliography}{2}
+%\bibitem[1]{cite1} Trainer Solo Sport, \textit{Avio et Tiger}, \url{http://www.net-loisirs.com/trainer-solo-sport-p1155.html}.
+%\bibitem[2]{cite2} Université Bretagne Sud, \textit{Moteur de modélisme} \url{http://foad.univ-ubs.fr/file.php/1355/TP_meca3d/Moteur_modelisme.zip}.
+%\bibitem[3]{JPP} Jean-Pierre Pupier -- Paramétrage -- PTSI -- Lycée Rouvière Toulon.
+\end{thebibliography}
+\end{document}
+
