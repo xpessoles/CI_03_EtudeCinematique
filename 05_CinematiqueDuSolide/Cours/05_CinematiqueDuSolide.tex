@@ -112,8 +112,123 @@ Ch 4 : Cinématique du solide -- \ifthenelse{\boolean{prof}}{P}{E}%
 
 \section{Vitesse d'un point appartenant à un solide}
 
+
+
 \subsection{Définition du vecteur vitesse}
+
+\begin{defi}
+\textbf{Vitesse d'un point appartenant à un solide}
+
+Soit un solide $S_0$ auquel on associe le repère $\mathcal{R}_0$ $\left(O_0,\vect{i_0};\vect{j_0},\vect{k_0} \right)$.  Soit un solide $S_1$ auquel on associe le repère $\mathcal{R}_1$,  $\left(O_1,\vect{i_1};\vect{j_1};\vect{k_1} \right)$. Le solide $S_1$ est en mouvement par rapport au solide $S_0$. 
+
+Soit un point $P$ appartenant au solide $S_1$. La vitesse du point $P$ appartenant au solide $S_1$ par rapport au solide $S_0$ se calcule donc ainsi : 
+$$
+\vect{V(P\in S_1/S_0)}(t) = \left[\dfrac{d\vect{OP(t)}}{dt}\right]_{\mathcal{R}_0}
+$$
+\end{defi}
+
+\begin{warn}
+\begin{minipage}[c]{.15\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{png/warning3}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.8\linewidth}
+\begin{itemize}
+\item Attention à respecter rigoureusement la notation.
+\item La vitesse dépend du point d'application.
+\end{itemize}
+\end{minipage}
+\end{warn}
+
+
+\begin{rem}
+\begin{minipage}[c]{.65\linewidth}
+Lorsqu'un point est confondu pour deux solides (centre d'une liaison pivot ou d'une liaison rotule par exemple) les vitesses sont égales ainsi, ici : 
+$$
+\vect{V(0_2\in S_1/S_0)}(t) = \vect{V(0_2\in S_2/S_0)}(t)
+$$
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+%\includegraphics[width=.8\textwidth]{png/2solides}
+\end{center}
+\end{minipage}
+\end{rem}
+
+\begin{rem}
+Dérivée d'un vecteur
+\end{rem}
+
+\begin{exemple}
+\end{exemple}
+
 \subsection{Vecteur instantané de rotation}
+Soit un avion $S_1$ repéré par le repère $\mathcal{R}_1\left(O_1,\vect{i_1},\vect{j_1},\vect{k_1} \right)$ en mouvement libre par rapport à un repère $\mathcal{R}_0\left(O_0,\vect{i_0},\vect{j_0},\vect{k_0} \right)$.  La position de l'avion dans l'espace est repéré par le vecteur $\vect{O_0O_1}=x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{j_0}$ ainsi que par les angles d'Euler.
+
+\begin{minipage}[c]{.65\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/euler}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\end{minipage}
+
+
+Calculons la vitesse du point $O_1$ par rapport à $\mathcal{R}_0$ :
+\begin{eqnarray*}
+\vectv{O_1}{S_1}{S_0} &=&  \left[\dfrac{d\vect{O_0 O_1}(t)}{dt}\right]_{\mathcal{R}_0} \\
+&=& \left[\dfrac{d\left(x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{j_0} \right)}{dt}\right]_{\mathcal{R}_0}
+= 
+\left[\dfrac{d\left(x(t)\vect{i_0}\right)}{dt}\right]_{\mathcal{R}_0}
++\left[\dfrac{d\left(y(t)\vect{j_0}\right)}{dt}\right]_{\mathcal{R}_0}
++\left[\dfrac{d\left(z(t)\vect{k_0}\right)}{dt}\right]_{\mathcal{R}_0} \\
+&=&
+x(t)\underbrace{\left[\dfrac{d\vect{i_0}}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}}
++ \left[\dfrac{dx(t)}{dt}\right]_{\mathcal{R}_0} \vect{i_0}
++y(t)\underbrace{\left[\dfrac{d\vect{j_0}}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}}
++ \left[\dfrac{dy(t)}{dt}\right]_{\mathcal{R}_0} \vect{j_0}
++z(t)\underbrace{\left[\dfrac{d\vect{k_0}}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}} 
++ \left[\dfrac{dz(t)}{dt}\right]_{\mathcal{R}_0} \vect{k_0} \\
+&= &\dot{x(t)}\vect{i_0}+\dot{y(t)}\vect{j_0}+\dot{z(t)}\vect{k_0}
+\end{eqnarray*}
+
+
+Soit $P$ un point appartenant à l'avion tel que $\vect{O_1P}=a\vect{i_1}+b\vect{j_1}+c\vect{k_1}$. Calculons la vitesse du point $P$ par rapport à $\mathcal{R}_0$ :
+
+$$
+\vectv{P}{S_1}{S_0}=\left[\dfrac{d\vect{O_0 P}(t)}{dt}\right]_{\mathcal{R}_0}
+= \left[\dfrac{d\left( \vect{O_0 O_1} + \vect{O_1P}\right)(t)}{dt}\right]_{\mathcal{R}_0}
+=\underbrace{\left[\dfrac{d\vect{O_0 O_1}(t)}{dt}\right]_{\mathcal{R}_0}}_{\vectv{O_1}{S_1}{S_0}}
++\left[\dfrac{d\vect{O_1 P}(t)}{dt}\right]_{\mathcal{R}_0}
+$$
+
+Calculons donc $\left[\dfrac{d\vect{O_1 P}(t)}{dt}\right]_{\mathcal{R}_0}$ :
+\begin{eqnarray*}
+\left[\dfrac{d\vect{O_1 P}(t)}{dt}\right]_{\mathcal{R}_0} & = & 
+\left[\dfrac{d\left(a\vect{i_1}+b\vect{j_1}+c\vect{j_1} \right)}{dt}\right]_{\mathcal{R}_0} \\
+& = & a\left[\dfrac{d\vect{i_1}}{dt}\right]_{\mathcal{R}_0}
++ \underbrace{\left[\dfrac{da}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}} \vect{i_1}
++b\left[\dfrac{d\vect{j_1}}{dt}\right]_{\mathcal{R}_0}
++ \underbrace{\left[\dfrac{db}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}} \vect{j_1}
++c\left[\dfrac{d\vect{k_1}}{dt}\right]_{\mathcal{R}_0} 
++ \underbrace{\left[\dfrac{dc}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}} \vect{k_1} \\
+& = & a\left[\dfrac{d\vect{i_1}}{dt}\right]_{\mathcal{R}_0}
++b\left[\dfrac{d\vect{j_1}}{dt}\right]_{\mathcal{R}_0}
++c\left[\dfrac{d\vect{k_1}}{dt}\right]_{\mathcal{R}_0} \\
+\end{eqnarray*}
+
+Pour dériver les vecteurs $\vect{i_1}$, $\vect{j_1}$ et $\vect{k_1}$ dans la base $\mathcal{R}_0$ il faut les exprimer dans $\mathcal{R}_0$. On a donc :
+
+\begin{eqnarray*}
+\vect{i_1} & = &  \cos\varphi(t) \vect{u} +  \sin\varphi(t) \vect{w}  \\
+ & = & \cos\varphi(t)\left(\cos \psi(t) \vect{i_0}+\sin \psi(t) \vect{j_0} \right)+  \sin\varphi(t) \left( \cos \theta(t) \vect{v}+\sin \theta(t) \vect{k_0} \right) \\
+ & = & \cos\varphi(t)\left(\cos \psi(t) \vect{i_0}+\sin \psi(t) \vect{j_0} \right)+  \sin\varphi(t) \left( \cos \theta(t) \left(\cos \psi(t) \vect{j_0}-\sin \psi(t) \vect{i_0}  \right)+\sin \theta(t) \vect{k_0} \right) \\
+& = & \left(\cos\varphi(t)\cos \psi(t) - \sin\varphi(t) \cos \theta(t)\sin \psi(t) \right)\vect{i_0}  + \left(\cos\varphi(t) \sin \psi(t) + \sin\varphi(t) \cos \theta(t) \cos \psi(t) \right)\vect{j_0} + \sin\varphi(t) \sin \theta(t) \vect{k_0}\\
+\vect{j_1} & = & \\
+\vect{k_1} & = & \\
+\end{eqnarray*}
+
 \subsection{Champ des vecteurs vitesses des points d'un solide}
 
 
