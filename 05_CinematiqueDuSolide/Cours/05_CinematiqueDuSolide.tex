@@ -78,7 +78,16 @@ Ch 5 : Cinématique du solide -- \ifthenelse{\boolean{prof}}{P}{E}%
 \begin{savoir}
 \textbf{Savoirs :}
 \begin{itemize}
-\item %Rés-C1.1 : Fermeture géométrique.
+\item Mod-C11 : Modélisation géométrique et cinématique des mouvements entre solides indéformables 
+\begin{itemize}
+\item Mod-C11.2 : Champ des vecteurs vitesses des points d'un solide
+\item Mod-C11.4 : Composition des vitesses
+\item Mod-C11.6 : Champ des vecteurs accélérations des points d'un solide
+\item Mod-C11.6 : Composition des accélérations
+\item Mod-C11-S5 : Déterminer la trajectoire d’un point d’un solide
+\item Mod-C11-S8 : Écrire le vecteur accélération d’un point d’un solide
+
+\end{itemize}
 \end{itemize}
 \end{savoir}
 
@@ -99,7 +108,86 @@ Ch 5 : Cinématique du solide -- \ifthenelse{\boolean{prof}}{P}{E}%
 \section{Avant propos}
 
 \subsection{Notion de solide indéformable}
+Lorsqu'un objet ou un système est soumis à des efforts, il peut subir, suivant la nature du matériau de grandes ou de petites déformations. 
+
+\begin{exemple}
+\begin{center}
+\begin{tabular}{ccc}
+\includegraphics[width=.25\textwidth]{png/wg} & &
+%\includegraphics[width=.25\textwidth]{png/or} & 
+\includegraphics[width=.25\textwidth]{png/eprouvette} \\
+Pâte à modeler \cite{cite4}& &
+%Nano gouttes d'or \cite{cite5} & 
+Éprouvette de traction\\
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item pale d'hélicoptère soumis à une force centrifuge;
+\item fluides ...
+\end{itemize}
+\end{exemple}
+
+Dans le cadre du programme de CPGE (PTSI et PT), plusieurs hypothèses peuvent être retenues.
+En résistance des matériaux (programme de PT), ou lors des essais sur les matériaux (essai de traction par exemple), les matériaux sont considérés comme déformables. En effet, on observe la déformation de la matière au cours du temps.
+
+En cinématique (PTSI), en statique (PTSI) et en dynamique (PT) les solides seront considérés comme indéformables. On considère en effet que les déformations sont négligeables par rapport aux études réalisées.
+
+\begin{hypo}
+\textbf{Solide indéformable}
+
+%\begin{minipage}[c]{.6\linewidth}
+%\ifthenelse{\boolean{prof}}{%
+On considère deux points $A$ et $B$ d'un solide indéformable noté $S$. On note $t$ le temps.
+
+$$
+\forall A,B \in S, \forall t\in \mathbb{R}, \vect{AB(t)}^2 = \text{constante}
+$$
+
+\end{hypo}
+\begin{rem}
+En cinématique du solide indéformable, les fluides et les ressorts ne seront pas étudiés.
+\end{rem}
+
 \subsection{Notion de point appartenant à un solide}
+
+
+
+\begin{warn}
+\begin{minipage}[c]{.15\linewidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{png/warning3}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.8\linewidth}
+En cinématique, il faudra vérifier si les points considérés sont bien des points matériels des solides considérés. 
+\end{minipage}
+\end{warn}
+
+\begin{minipage}[c]{.45\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/ex1}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.5\linewidth}
+Dans le cas d'une roue de voiture, le point de contact entre la roue et le sol n'est pas un point matériel, il change au cours du temps...
+\end{minipage}
+\begin{minipage}[c]{.75\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/ex2}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.23\linewidth}
+... il en est de même pour le point de contact entre la came et le plateau.
+\end{minipage}
+\begin{minipage}[c]{.75\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/ex3}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.23\linewidth}
+Dans une transmission par engrenage simple, on modélise le contact entre $S_1$ et $S_2$ par un point qui est fixe par rapport au bâti. Ce point n'appartient ni au solide 1, ni au solide 2.
+\end{minipage}
+
 
 \section{Trajectoire d'un point appartenant à un solide}
 
@@ -171,8 +259,6 @@ On a ainsi l'équation paramétrique de la position du point $G$.
 \end{exemple}
 \section{Vitesse d'un point appartenant à un solide}
 
-
-
 \subsection{Le vecteur vitesse}
 \subsubsection{Définition}
 
@@ -202,6 +288,15 @@ $$
 \end{itemize}
 \end{minipage}
 \end{warn}
+
+
+\begin{rem}
+\begin{itemize}
+\item $\vect{V(P\in S_1/S_0)}(t)$ dépend du temps $t$. On l'appelle vitesse instantannée. 
+\item $\vect{V(P\in S_1/S_0)}(t)$ est tangent à la trajectoire du point $P$ dans $\mathcal{R}_0$.
+\item $\vect{V(P\in S_1/S_0)}(t)$ peut s'exprimer dans n'importe quelle base.
+\end{itemize}
+\end{rem}
 
 
 \subsubsection{Calcul du vecteur vitesse -- Application directe}
@@ -315,7 +410,11 @@ a \dot{\alpha(t)}\cos\alpha(t) \\
 =\left[\begin{array}{c} 0 \\ a\dot{\alpha(t)} \\ 0\end{array}\right]_{\mathcal{R}_1}
 $$
 
-Dans les deux cas, $\vect{O_0O_1}(t)$ est dérivé par rapport $\mathcal{R}_0$ mais il s'exprime différemment dans $\mathcal{R}_0$ et $\mathcal{R}_1$.
+Dans les deux cas, $\vect{O_0O_1}(t)$ est dérivé par rapport $\mathcal{R}_0$ mais il s'exprime différemment dans $\mathcal{R}_0$ et $\mathcal{R}_1$ :
+\begin{itemize}
+\item $\vectv{O_1}{S_1}{S_0} = -a\dot{\alpha(t)}\sin\alpha(t) \vect{i_0}   + a\dot{\alpha(t)}\cos\alpha(t) \vect{j_0}$ : ici la base de \textbf{projection} et de \textbf{dérivation} est la base $\mathcal{B}_0$;
+\item $\vectv{O_1}{S_1}{S_0} = a\dot{\alpha(t)}\vect{j_1}$ : ici la base de dérivation est la base $\mathcal{B}_0$ et la base de projection est $\mathcal{B}_1$.
+\end{itemize}
 
 
 \end{exemple}
@@ -335,7 +434,7 @@ $$
 \end{minipage}\hfill
 \begin{minipage}[c]{.3\linewidth}
 \begin{center}
-\includegraphics[width=.8\textwidth]{png/centrifugeuse_4}
+\includegraphics[width=.6\textwidth]{png/centrifugeuse_4}
 \end{center}
 \end{minipage}
 \end{rem}
@@ -370,7 +469,7 @@ Soit un solide $S_0$ auquel on associe le repère $\mathcal{R}_0$ $\left(O_0,\ve
 
 
 \begin{minipage}[c]{.3\linewidth} 
-Les rotations entre le solide 1 et le solide 2 sont paramétrés par les angles d'Euler $\psi(t)$, $\theta(t)$ et $\varphi(t)$.
+Les rotations entre le solide $S_0$ et le solide $S_1$ sont paramétrés par les angles d'Euler $\psi(t)$, $\theta(t)$ et $\varphi(t)$.
 \end{minipage}\hfill
 \begin{minipage}[c]{.65\linewidth}
 \begin{center}
@@ -421,7 +520,7 @@ $$
 $$
 
 \end{exemple}
-\subsection{Dérivation vectorielle}
+\subsection{Dérivation vectorielle -- Formule de Bour}
 
 
 \begin{resultat}
@@ -1034,11 +1133,35 @@ On appelle :
 \end{itemize}
 \end{resultat}
 
+\section{Mouvements élémentaires}
+
+En cinématique, les vitesses dépendront des dérivées des paramètres variables angulaires et linéaires. Pour les chaînes ouvertes, il sera nécessaire de disposer d'un actionneur par paramètre variable pour animer un système. Pour les chaînes fermées à une seule boucle, il suffira d'un actionneur en entrée du système pour l'animer.
+%\begin{exemple}
+
+%\end{exemple}
+Les lois d'évolution des actionneurs sont au choix du concepteur du système. 
+
+\subsection{Loi de vitesse uniforme}
+Dans le cas où la vitesse est uniforme, on a la loi suivante : 
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/loi1}
+\end{center}
+
+\subsection{Loi de vitesse en trapèze}
+Physiquement il est impossible de passer d'une vitesse nulle à une vitesse non nulle. Par une première approche, il est possible qu'un actionneur soit piloté par une loi de vitesse en trapèze :
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/loi2}
+\end{center}
+
+
 
 \begin{thebibliography}{2}
 \bibitem[1]{cite1} Centrifugeuse humaine -- CNRS Photothèque/Sébastien Godefroy et MEDES, \textit{Avio et Tiger}, \url{http://www.medes.fr/home_fr/fiche-centrifugeuse/mainColumnParagraphs/0/document/Presentation%20centrifugeuse%2018.12.07.pdf}.
-%\bibitem[2]{cite2} Université Bretagne Sud, \textit{Moteur de modélisme} \url{http://foad.univ-ubs.fr/file.php/1355/TP_meca3d/Moteur_modelisme.zip}.
-%\bibitem[3]{JPP} Jean-Pierre Pupier -- Paramétrage -- PTSI -- Lycée Rouvière Toulon.
+\bibitem[2]{cite4} Wallace et Gromit, \url{http://www.wallaceandgromit.com/goodies/}.
+\bibitem[3]{JPP} Jean-Pierre Pupier -- Vitesse et accélération -- Dérivée vectorielle -- Mouvement de solides -- PTSI -- Lycée Rouvière Toulon.
+\bibitem[4]{FM} Florestan Mathurin, \textit{Champs des Vecteurs Vitesse des Points d’un Solide}, cours de PCSI / MPSI du lycée Bellevue de Toulouse, \url{http://florestan.mathurin.free.fr} .
 \end{thebibliography}
 \end{document}
 
