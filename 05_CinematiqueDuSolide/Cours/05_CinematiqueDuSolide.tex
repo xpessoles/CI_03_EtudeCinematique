@@ -195,9 +195,9 @@ Dans une transmission par engrenage simple, on modélise le contact entre $S_1$ 
 \begin{defi}
 \textbf{Trajectoire d'un point dans l'espace}
 
-Soit un point $P$ se déplaçant dans un repère $\mathcal{R}_0$. La trajectoire du point $P$ est définie par la courbe $\mathcal{C}(t)$ paramétrée par le temps $t$. On a : 
+Soit un point $P$ se déplaçant dans un repère $\mathcal{R}_0 \left(O,\vect{i_0},\vect{j_0},\vect{k_0} \right)$. La trajectoire du point $P$ est définie par la courbe $\mathcal{C}(t)$ paramétrée par le temps $t$. On a : 
 $$
-\forall t\in \mathbb{R}^+, \vect{OM(t)}=
+\forall t\in \mathbb{R}^+, \vect{OP(t)}=
 \left[
 \begin{array}{l}
 x(t)\\
@@ -205,7 +205,7 @@ y(t)\\
 z(t)\\
 \end{array}
 \right]_{\mathcal{R}_0}
-=x(t)\vect{x_0}+y(t)\vect{y_0}+z(t)\vect{z_0}
+=x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{k_0}
 $$
 \end{defi}
 
@@ -242,13 +242,15 @@ $$
 Il faut alors projeter les vecteurs dans $\mathcal{R}_0$ : 
 \begin{eqnarray*}
 \vect{O_0 G}(t) &=& a \left(\cos\alpha(t) \vect{i_0} + \sin\alpha(t) \vect{j_0} \right) 
-+ b \left(\cos\beta(t) \vect{i_1} - \sin\beta(t) \vect{k_1} \right) \\
++ b \left(\cos\beta(t) \vect{i_1} - \sin\beta(t) \vect{k_1} \right) 
++ c\left(\cos\beta(t) \vect{k_1} + \sin\beta(t)\vect{i_1}\right)\\
 &=& a \left(\cos\alpha(t) \vect{i_0} + \sin\alpha(t) \vect{j_0} \right) 
 + b \left(\cos\beta(t) \left(\cos\alpha(t) \vect{i_0} + \sin\alpha(t) \vect{j_0} \right) - \sin\beta(t) \vect{k_0} \right) \\
+&& + c\left(\cos\beta(t) \vect{k_0} + \sin\beta(t)  \left(\cos\alpha(t) \vect{i_0} + \sin\alpha(t) \vect{j_0} \right) \right)\\
 &=& \left[ \begin{array}{c} 
-a \cos\alpha(t) + b \cos\beta(t) \cos\alpha(t) \\
-a \sin\alpha(t) + b \cos\beta(t) \sin\alpha(t) \\
-- \sin\beta(t)
+a \cos\alpha(t) + b \cos\beta(t) \cos\alpha(t) +c \sin\beta(t)\cos\alpha(t)\\
+a \sin\alpha(t) + b \cos\beta(t) \sin\alpha(t) +c \sin\beta(t)\sin\alpha(t) \\
+- b\sin\beta(t) + c\cos\beta(t)
 \end{array}\right]_{\mathcal{R}_0}
 \end{eqnarray*}
 
@@ -301,7 +303,7 @@ $$
 
 \subsubsection{Calcul du vecteur vitesse -- Application directe}
 
-Soit un avion $S_1$ repéré par le repère $\mathcal{R}_1\left(O_1,\vect{i_1},\vect{j_1},\vect{k_1} \right)$ en mouvement libre par rapport à un repère $\mathcal{R}_0\left(O_0,\vect{i_0},\vect{j_0},\vect{k_0} \right)$.  La position de l'avion dans l'espace est repéré par le vecteur $\vect{O_0O_1}=x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{j_0}$ ainsi que par les angles d'Euler.
+Soit un avion $S_1$ repéré par le repère $\mathcal{R}_1\left(O_1,\vect{i_1},\vect{j_1},\vect{k_1} \right)$ en mouvement libre par rapport à un repère $\mathcal{R}_0\left(O_0,\vect{i_0},\vect{j_0},\vect{k_0} \right)$.  La position de l'avion dans l'espace est repéré par le vecteur $\vect{O_0O_1}=x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{k_0}$ ainsi que par les angles d'Euler.
 
 \begin{minipage}[c]{.3\linewidth}
 \begin{center}
@@ -326,7 +328,7 @@ Pour dériver le vecteur $\vect{O_0 O_1}(t)$ par rapport au repère $\mathcal{R}
 
 \begin{eqnarray*}
 \vectv{O_1}{S_1}{S_0} &=&  
-\left[\dfrac{d\left(x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{j_0} \right)}{dt}\right]_{\mathcal{R}_0}
+\left[\dfrac{d\left(x(t)\vect{i_0}+y(t)\vect{j_0}+z(t)\vect{k_0} \right)}{dt}\right]_{\mathcal{R}_0}
 = 
 \left[\dfrac{d\left(x(t)\vect{i_0}\right)}{dt}\right]_{\mathcal{R}_0}
 +\left[\dfrac{d\left(y(t)\vect{j_0}\right)}{dt}\right]_{\mathcal{R}_0}
@@ -920,7 +922,7 @@ $$\vectv{G}{S_2}{S_0} = \dot{\alpha} \left(a+b \cos\beta + c \sin\beta\right) \v
 $$
 
 Il est aussi possible de calculer $\vectv{G}{S_2}{S_0}$ ainsi : 
-$$\vectv{G}{S_2}{S_0} = \left[\dfrac{d O_0G}{dt}\right]_{\mathcal{R}_0}$$ 
+$$\vectv{G}{S_2}{S_0} = \left[\dfrac{d \vect{O_0G}}{dt}\right]_{\mathcal{R}_0}$$ 
 
 \end{exemple}
 \section{Accélération d'un point appartenant à un solide}
