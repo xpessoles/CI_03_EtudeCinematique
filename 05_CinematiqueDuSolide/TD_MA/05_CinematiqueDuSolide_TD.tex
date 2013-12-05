@@ -1,0 +1,202 @@
+\documentclass[10pt,oneside]{article}
+\input{coursHeadings}
+
+\usepackage[%
+    pdftitle={CIN -- Cinématique du solide -- TD},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+
+% \makeatletter \let\ps@plain\ps@empty \makeatother
+%% DEBUT DU DOCUMENT
+%% =================
+\sloppy
+\hyphenpenalty 10000
+
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+
+\begin{document}
+
+
+\newboolean{prof}
+\setboolean{prof}{false}
+%------------- En tetes et Pieds de Pages ------------
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+\fancyhead[L]{%
+\noindent\noindent\begin{minipage}[c]{2.6cm}
+%Lycée Rouvière PTSI
+\includegraphics[width=2cm]{png/logo_ptsi.png}%
+\end{minipage}
+}
+
+\fancyhead[C]{\rule{12cm}{.5pt}}
+
+\fancyhead[R]{%
+\begin{minipage}[c]{3cm}
+\begin{flushright}
+\footnotesize{\textit{\textsf{Sciences Industrielles\\ de l'Ingénieur}}}%
+\end{flushright}
+\end{minipage}
+}
+
+\renewcommand{\footrulewidth}{0.2pt}
+
+\fancyfoot[C]{\footnotesize{\bfseries \thepage}}
+\fancyfoot[L]{\footnotesize{2013 -- 2014} \\ X. \textsc{Pessoles} -- TD de F. Mathurin}
+\ifthenelse{\boolean{prof}}{%
+\fancyfoot[R]{\footnotesize{CI 3 : CIN -- TD} \\ \footnotesize{Ch 5 : Cinématique du solide -- P}}
+}{%
+\fancyfoot[R]{\footnotesize{CI 3 : CIN -- TD} \\ \footnotesize{Ch 5 : Cinématique du solide -- E}}
+}
+
+
+%\begin{center}
+%\textit{Centre d'intérêt}
+%\end{center}
+
+
+
+\begin{center}
+ \Large\textsc{CI 3 -- CIN : Étude du comportement cinématique des systèmes}
+\end{center}
+
+\begin{center}
+ \large\textsc{Chapitre 5 -- Cinématique du solide indéformable}
+\end{center}
+
+%\begin{center}
+%\textsc{Manège Magic Arms } 
+%\end{center}
+\begin{flushright}
+\textit{Activité proposée par F. Mathurin} 
+\end{flushright}
+\vspace{.5cm}
+
+
+\section*{Robot ramasseur de fruits} 
+On étudie un robot ramasseur de fruits. Il permet à un agriculteur de cueillir, de manière automatique, les fruits mûrs dans les arbres, et de les mettre dans un conteneur spécifique. 
+
+Le bras 1 tourne autour de l'axe $(O_0,\vect{z_0})$ par rapport au bâti 0. Le bras 2 tourne autour de l'axe $(O_1,\vect{z_0})$ par rapport à 1. Le bras 3 tourner autour de l'axe $(O_2,\vect{z_0})$ par rapport à 2. On pose :
+\begin{itemize}
+\item $\vect{O_0O_1} = R\vect{x_1}$;
+\item $\vect{O_1O_2} = R\vect{x_2}$;
+\item $\vect{O_2M} = L\vect{x_3}$;
+\end{itemize}
+
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/fig1}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.47\linewidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/fig2}
+\end{center}
+\end{minipage}
+
+\begin{center}
+\includegraphics[width=.5\textwidth]{png/fig3}
+\end{center}
+
+\subparagraph{}
+\textit{Construire les figures planes de repérage/paramétrage puis exprimer les vecteurs vitesse instantanée de rotation $\vecto{1}{0}$, $\vecto{2}{1}$, $\vecto{3}{2}$.} 
+
+\subparagraph{}
+\textit{Déterminer $\vectv{O_1}{1}{0}$.}
+
+\subparagraph{}
+\textit{Déterminer $\vectv{O_2}{2}{0}$.}
+
+\subparagraph{}
+\textit{Déterminer $\vectv{M}{3}{0}$.}
+
+\subparagraph{}
+\textit{Dans la configuration de rapprochement horizontal, ($\theta_2=\pi-2\theta_1$ et $\theta_3=\theta_1-\dfrac{\pi}{2}$) montrer que $\vectv{M}{3}{0}\cdot \vect{x_0}$et déterminer $||\vectv{M}{3}{0}||$.}
+
+\subparagraph{}
+\textit{Déterminer la valeur numérique de la vitesse maximale (R = 48 cm, L = 72 cm et $\dot{\theta_1}= 0,08 tr/min$ ) et conclure quant à la capacité du robot à satisfaire le critère de vitesse d'approche du fruit du cahier des charges. }
+
+\section*{Manège Magic Arms } 
+\setcounter{subparagraph}{0}
+
+La manège Magic Arms dont la modélisation ainsi qu'un extrait de cahier des charges fonctionnel est composé d'une structure métallique d'environ $12\; m$ de haut avec deux bras mobiles. Les passagers s'assoient sur 39 pièces disposés sur une plate-forme tournante. Dès que tous les passagers sont assis et attachés, la nacelle tourne autour de son axe, le bras principal (bras 1) et le bras secondaires (bras 2), liés l'un à l'autre au début du cycle, commencent à tourner. Après 9 secondes, le maximum de hauteur est atteint et les deux bras se désindexent et se mettent à tourner indépendamment l'un de l'autre. Tous les mouvements sont pilotés par ordinateur. 
+
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/img1}
+\end{center}
+
+Le manège, schématisé ci-dessus, comporte :
+\begin{itemize}
+\item un bras principal 1 assimilé à une barre $AO_1O_2$. Il est en liaison pivot parfait d'axe $(O_1,\vect{z_1})$ caractérisée par le paramètre $\alpha$ avec le bâti 0. On pose $\vect{O_1O_2}=-l_1\vect{y_1}$;
+\item un bras secondaire 2 assimilé à une barre $BO_2O_3$. Il est en liaison pivot parfait d'axe $(O_2,\vect{z_2})$ caractérisée par le paramètre $\beta$ avec le bras principal 1. On pose $\vect{O_2O_3}=-l_2\vect{y_2}$;
+\item une nacelle 3 assimilée à un disque de centre $O_3$ et de rayon $R$. Elle est en liaison parfaite d'axe $(O_3,\vect{y_2})$ caractérisée par le paramètre $\varphi$ avec le bras 2. On s'intéresse plus particulièrement à un passager considéré comme un point matériel $P$ tel que $\vect{O_3P}=-R\vect{z_3}$.
+\end{itemize}
+\subparagraph{}
+\textit{Construire les figures planes associées au schéma cinématique.}
+
+\subparagraph{}
+\textit{Calculer $\vecto{1}{0}$, $\vecto{2}{1}$ et $\vecto{3}{2}$.}
+
+\vspace{.3cm}
+
+On admet que $\vecto{3}{0}=\vecto{3}{2}+\vecto{2}{1}+\vecto{1}{0}$.
+
+\subparagraph{}
+\textit{Calculer $\vecto{2}{0}$ et $\vecto{3}{0}$.}
+
+\subparagraph{}
+\textit{Calculer les produits vectoriels suivants : $\vect{z_2}\wedge\vect{z_3}$,
+$\vect{x_3}\wedge\vect{x_2}$, $\vect{x_3}\wedge\vect{z_2}$,
+$\vect{z_2}\wedge\vect{z_1}$, $\vect{x_2}\wedge\vect{x_0}$,
+$\vect{x_3}\wedge\vect{z_0}$.}
+
+
+\subparagraph{}
+\textit{Calculer $\vectv{O_2}{2}{0}$, $\vectv{O_3}{3}{0}$ et $\vectv{P}{3}{0}$.}
+
+\vspace{.3cm}
+
+On donne l'évolution des vitesses angulaires des moteurs du manège en fonction du temps.
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/img2}
+\end{center}
+
+\subparagraph{\label{lab}}
+\textit{Déterminer les valeurs des paramètres $\dot{\alpha}$, $\dot{\beta}$ et $\dot{\varphi}$
+puis l'expression analytique des positions angulaires $\alpha(t)$ et $\beta(t)$ et $\varphi(t)$ dans l'intervalle de temps $[17;27]$ secondes en sachant qu'à l'instant $t=17\;s$, on a $\alpha=10,5\; rad$, $\beta=3,76\; rad$ et $\gamma=-10,676\; rad$.}
+
+\subparagraph{}
+\textit{Déterminer les valeurs numériques à l'instant $t_1=19,8\; s$ de $\alpha$, $\beta$ et $\varphi$.}
+
+\subparagraph{}
+\textit{On pose $\vectv{P}{3}{0}=V_{x2}\vect{x_2}+V_{y2}\vect{y_2}+V_{z2}\vect{z_2}$. Déterminer les expressions littérales de $V_{x2}$, $V_{x2}$, $V_{z2}$ puis les valeurs numériques de à $t_1=19,8\;s.$} (On donne : $l_1=3,9\;m$, $l_2=2,87\;m$, $R=2,61\;m$.)
+
+\subparagraph{}
+\textit{Calculer $\vect{\Gamma\left(P\in3/0 \right)}$.}
+
+\subparagraph{}
+\textit{Calculer $\vect{\Gamma\left(P\in3/0 \right)}$ dans l'intervalle de temps $[17;27]$ secondes pour lequel les vitesses angulaires sont constantes.}
+
+\vspace{.3cm}
+
+Le graphe ci-dessous, obtenu par simulation numérique, présente le module de la vitesse du passager $P$ par rapport au bâti 0 ainsi que le module de l'accélération du passager $P$ par rapport au bâti 0 en fonction du temps. 
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/img3}
+\end{center}
+
+\subparagraph{}
+\textit{Comparer les résultats obtenus à la question \ref{lab} à ceux du graphe pour le temps $t_1=19,8\;s.$.}
+
+\subparagraph{}
+\textit{Relever l'accélération maximale subie par le passager et conclure vis-à-vis du CdCF.}
+
+\end{document}
