@@ -127,6 +127,8 @@ Pâte à modeler \cite{cite4}& &
 \end{itemize}
 \end{exemple}
 
+
+
 Dans le cadre du programme de CPGE (PTSI et PT), plusieurs hypothèses peuvent être retenues.
 En résistance des matériaux (programme de PT), ou lors des essais sur les matériaux (essai de traction par exemple), les matériaux sont considérés comme déformables. En effet, on observe la déformation de la matière au cours du temps.
 
@@ -147,6 +149,7 @@ $$
 \begin{rem}
 En cinématique du solide indéformable, les fluides et les ressorts ne seront pas étudiés.
 \end{rem}
+
 
 \subsection{Notion de point appartenant à un solide}
 
@@ -360,19 +363,13 @@ Il est est de même pour $\left[\dfrac{d\vect{j_0}}{dt}\right]_{\mathcal{R}_0}$ 
 \begin{rem}
 \begin{itemize}
 \item La dérivée d'un vecteur fixe $\vect{V}$ exprimé dans une base $\mathcal{B}_i$ par rapport à $\mathcal{B}_i$ est nul. Ainsi,  $\left[\dfrac{d\vect{i_i}}{dt}\right]_{\mathcal{R}_i}=\vect{0}$.
-\item On note par un $\cdot$ la dérivée d'une fonction par rapport au temps : $\left[\dfrac{dx(t)}{dt}\right] = \dot{x(t)}$.
+\item On note par un $\cdot$ la dérivée d'une fonction par rapport au temps : $\left[\dfrac{dx(t)}{dt}\right] = \dot{x}(t)$.
 \end{itemize}
 
 \end{rem}
 
 Au final, on a donc :
-$$\vectv{O_1}{S_1}{S_0} = \dot{x(t)} \vect{i_0}+\dot{y(t)} \vect{j_0}+\dot{z(t)} \vect{k_0} $$
-
-
-
-
-
-
+$$\vectv{O_1}{S_1}{S_0} = \dot{x}(t) \vect{i_0}+\dot{y}(t) \vect{j_0}+\dot{z}(t) \vect{k_0} $$
 
 \begin{exemple}
 \textit{Centrifugeuse}
@@ -398,26 +395,25 @@ On a :
 +\cos\alpha(t)\underbrace{\left[\dfrac{d  \vect{i_0}}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}}
 +\dfrac{d \sin\alpha(t)}{dt} \vect{i_0}  
 +\sin(t)\underbrace{\left[\dfrac{d  \vect{j_0}}{dt}\right]_{\mathcal{R}_0}}_{\vect{0}}\\
-& = & -\dot{\alpha(t)}\sin\alpha(t) \vect{i_0}   + \dot{\alpha(t)}\cos\alpha(t) \vect{j_0}  = 
-\dot{\alpha(t)}\vect{j_1}
+& = & -\dot{\alpha}(t)\sin\alpha(t) \vect{i_0}   + \dot{\alpha}(t)\cos\alpha(t) \vect{j_0}  = 
+\dot{\alpha}(t)\vect{j_1}
 \end{eqnarray*}
 
 Ainsi,
 $$
 \vectv{O_1}{S_1}{S_0} 
 = \left[\begin{array}{c} 
--a\dot{\alpha(t)}\sin\alpha(t) \\
-a \dot{\alpha(t)}\cos\alpha(t) \\
+-a\dot{\alpha}(t)\sin\alpha(t) \\
+a \dot{\alpha}(t)\cos\alpha(t) \\
 0 \end{array}\right]_{\mathcal{R}_0}
-=\left[\begin{array}{c} 0 \\ a\dot{\alpha(t)} \\ 0\end{array}\right]_{\mathcal{R}_1}
+=\left[\begin{array}{c} 0 \\ a\dot{\alpha}(t) \\ 0\end{array}\right]_{\mathcal{R}_1}
 $$
 
 Dans les deux cas, $\vect{O_0O_1}(t)$ est dérivé par rapport $\mathcal{R}_0$ mais il s'exprime différemment dans $\mathcal{R}_0$ et $\mathcal{R}_1$ :
 \begin{itemize}
-\item $\vectv{O_1}{S_1}{S_0} = -a\dot{\alpha(t)}\sin\alpha(t) \vect{i_0}   + a\dot{\alpha(t)}\cos\alpha(t) \vect{j_0}$ : ici la base de \textbf{projection} et de \textbf{dérivation} est la base $\mathcal{B}_0$;
-\item $\vectv{O_1}{S_1}{S_0} = a\dot{\alpha(t)}\vect{j_1}$ : ici la base de dérivation est la base $\mathcal{B}_0$ et la base de projection est $\mathcal{B}_1$.
+\item $\vectv{O_1}{S_1}{S_0} = -a\dot{\alpha}(t)\sin\alpha(t) \vect{i_0}   + a\dot{\alpha}(t) \cos\alpha(t) \vect{j_0}$ : ici la base de \textbf{projection} et de \textbf{dérivation} est la base $\mathcal{B}_0$;
+\item $\vectv{O_1}{S_1}{S_0} = a\dot{\alpha}(t)\vect{j_1}$ : ici la base de dérivation est la base $\mathcal{B}_0$ et la base de projection est $\mathcal{B}_1$.
 \end{itemize}
-
 
 \end{exemple}
 
@@ -458,7 +454,7 @@ $$
  \vectv{O_0}{S_1}{S_0} = \vect{0} \quad \text{et} \quad 
 \vectv{O_1}{S_2}{S_1} = \vect{0}
 $$
-\textbf{Attention : ces relations ne sont vraies qu'au centre des liaisons et pour les mouvements entre les deux solides participant à la liaison.} 
+\textbf{Attention : dans le cas des liaisons pivots, ces relations ne sont vraies que sur les axes des liaisons et pour les mouvements relatifs entre les deux solides participant à la liaison.} 
 \end{exemple}
 \subsection{Vecteur instantané de rotation}
 
@@ -483,10 +479,10 @@ Les rotations entre le solide $S_0$ et le solide $S_1$ sont paramétrés par les
 
 On appelle vecteur instantané de rotation entre les solides $S_0$ et $S_1$ le vecteur
 $$
-\vecto{S_1}{S_0} = \dot{\psi(t)} \vect{k_0} + \dot{\theta(t)} \vect{u} + \dot{\varphi(t)} \vect{k_1}
+\vecto{S_1}{S_0} = \dot{\psi}(t) \vect{k_0} + \dot{\theta}(t) \vect{u} + \dot{\varphi}(t) \vect{k_1}
 $$
 
-$\dot{\psi(t)} $, $\dot{\theta(t)} $ et $\dot{\varphi(t)} $ sont en $rad/s$. 
+$\dot{\psi}(t) $, $\dot{\theta}(t) $ et $\dot{\varphi}(t) $ sont en $rad/s$. 
 \end{defi}
 
 \begin{rem}
@@ -499,10 +495,11 @@ $$\vecto{S_1}{S_0} = -\vecto{S_0}{S_1}$$
 \end{itemize}
 \end{rem}
 
+
 \subsubsection{Détermination du vecteur vitesse instantané de rotation dans les liaisons cinématiques}
 
 \begin{resultat}
-Lorsque il y a pas des degrés de liberté de rotation dans une liaison et que ces degrés de liberté sont paramétrés, on a :  
+Lorsqu'il n'y a pas de degrés de liberté de rotation dans une liaison ou que les degrés de liberté en rotation sont paramétrés, on a :  
 \begin{itemize}
 \item si les solides $S_1$ et $S_2$ sont en liaison pivot de centre $O$, d'angle $\alpha$ et d'axe $\vect{k}$ alors $\vecto{S_2}{S_1}=\dot{\alpha}\vect{k}$;
 \item si les solides $S_1$ et $S_2$ sont en liaison glissière d'axe $\vect{z}$, $\vecto{S_2}{S_1}=\vect{0}$; 
@@ -564,6 +561,7 @@ $$
 = a \dot{\alpha} \vect{j_1}
 $$
 \end{exemple}
+
 
 \subsection{Champ du vecteur vitesse dans un solide en mouvement}
 
@@ -940,6 +938,8 @@ $$
 
 \end{defi}
 
+
+
 \subsection{Champ d'accélération d'un solide en mouvement}
 On a vu que 
 $\vectv{B}{S_1}{S_0} = \vectv{A}{S_1}{S_0} + \vect{BA} \wedge \vecto{S_1}{S_0}$. En dérivant cette expression on a donc : 
@@ -1010,9 +1010,11 @@ $$
 \right]_{\mathcal{R}_0}
 $$
 
-$$
+
+
+\begin{eqnarray*}
 \vectg{A}{S_2}{\mathcal{R}_0}
-=
+&=&
 \left[
 \dfrac{d
 \vectv{A}{S_2}{S_1} }{dt}
@@ -1032,9 +1034,29 @@ $$
 \wedge 
 \left[
 \dfrac{d\vecto{S_1}{\mathcal{R}_0}}{dt}
+\right]_{\mathcal{R}_0}\\
+&=&
+\left[
+\dfrac{d
+\vectv{A}{S_2}{S_1} }{dt}
 \right]_{\mathcal{R}_0}
-$$
-
++ 
+\left[
+\dfrac{d\vectv{O_2}{S_1}{\mathcal{R}_0}}{dt}
+\right]_{\mathcal{R}_0}
++
+\vecto{S_1}{\mathcal{R}_0}
+\wedge 
+\left[
+\dfrac{d\vect{O_2A}}{dt}
+\right]_{\mathcal{R}_0}
++
+\left[
+\dfrac{d\vecto{S_1}{\mathcal{R}_0}}{dt}
+\right]_{\mathcal{R}_0}
+\wedge 
+\vect{O_2A}
+\end{eqnarray*}
 
 $$
 \left[
@@ -1047,7 +1069,7 @@ $$
 \vectv{A}{S_2}{S_1} }{dt}
 \right]_{S_1}
 +
-\vecto{S_2}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
+\vecto{S_1}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
 $$
 
 $$
@@ -1059,7 +1081,7 @@ $$
 =
 \vectg{A}{S_2}{S_1} 
 +
-\vecto{S_2}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
+\vecto{S_1}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
 $$
 
 
@@ -1072,31 +1094,32 @@ $$
 
 $$
 \left[
-\dfrac{d\vect{AO_2}}{dt}
+\dfrac{d\vect{O_2A}}{dt}
 \right]_{\mathcal{R}_0}
 =
 \left[
-\dfrac{d\vect{AO_2}}{dt}
+\dfrac{d\vect{O_2A}}{dt}
 \right]_{S_1}
 +
 \vecto{S_1}{\mathcal{R}_0}
 \wedge 
-\vect{AO_2}
+\vect{O_2A}
 =
 \vectv{A}{S_2}{S_1}+
 \vecto{S_1}{\mathcal{R}_0}
 \wedge 
-\vect{AO_2}
+\vect{O_2A}
 $$
+
 
 
 On a donc : 
 \begin{eqnarray*}
 \vectg{A}{S_2}{\mathcal{R}_0}
 &=&
-\vectg{A}{S_2}{S_1} + \vecto{S_2}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
+\vectg{A}{S_2}{S_1} + \vecto{S_1}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}
 +\vectg{O_2}{S_1}{\mathcal{R}_0}
-+\vectv{A}{S_2}{S_1\wedge \vecto{S_1}{\mathcal{R}_0}}\\
++\vecto{S_1}{\mathcal{R}_0}\wedge \vectv{A}{S_2}{S_1} \\
 &+&\vecto{S_1}{\mathcal{R}_0} \wedge \vecto{S_1}{\mathcal{R}_0} \wedge \vect{O_2A}
 +
 \left[
@@ -1106,6 +1129,7 @@ On a donc :
 \vect{O_2A}
 \end{eqnarray*}
 
+%\end{document}
 Par ailleurs d'après le paragraphe précédent, 
 $$
 \vectg{A}{S_1}{\mathcal{R}_0} 
@@ -1119,7 +1143,7 @@ Au final,
 $$
 \vectg{A}{S_2}{\mathcal{R}_0}
 =
-\vectg{A}{S_2}{S_1} + \underbrace{2\vecto{S_2}{\mathcal{R}_0}}_{\vectg{A}{S_1}{\mathcal{R}_0}_{Cor}}\wedge\vectv{A}{S_2}{S_1}
+\vectg{A}{S_2}{S_1} + \underbrace{2\vecto{S_1}{\mathcal{R}_0}\wedge\vectv{A}{S_2}{S_1}}_{\vectg{A}{S_1}{\mathcal{R}_0}_{Cor}}
 +\vectg{A}{S_1}{\mathcal{R}_0} 
 $$
 
