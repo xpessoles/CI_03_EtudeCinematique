@@ -61,7 +61,7 @@ Ch 6 : Cinématique du point -- \ifthenelse{\boolean{prof}}{P}{E}%
 \begin{savoir}
 \textbf{Savoirs :}
 \begin{itemize}
-\item Mod-- C12 -- S2 : Identifier, dans le cas du contact ponctuel, le vecteur vitesse de glissement ainsi que les vecteurs rotation de roulement et de pivotement
+\item Mod-- C12 -- S2 : Identifier, dans le cas du contact ponctuel, le vecteur vitesse de glissement ainsi que les vecteurs rotation de roulement et de pivotement.
 \end{itemize}
 \end{savoir}
 
@@ -84,16 +84,16 @@ Intéressons nous par exemple au cas d'un système de distribution présent sur 
 \begin{prob}
 \textsc{Problématique :}
 \begin{itemize}
-\item Comment calculer les éléments du torseur cinématique dans une liaison de type sphère -- plan.
+\item Comment calculer le vecteur vitesse et le vecteur instantané de rotation dans une liaison de type sphère -- plan ?
 \end{itemize}
 \end{prob}
 
-\begin{savoir}
-\textsc{Savoirs :}
-\begin{itemize}
-\item Connaître les principes de la cinématique des contacts (adhérence ou glissement, roulement et pivotement)
-\end{itemize}
-\end{savoir}
+%\begin{savoir}
+%\textsc{Savoirs :}
+%\begin{itemize}
+%\item Connaître les principes de la cinématique des contacts (adhérence ou glissement, roulement et pivotement)
+%\end{itemize}
+%\end{savoir}
 
 \setlength{\parskip}{0ex plus 0.2ex minus 0ex}
  \renewcommand{\contentsname}{}
@@ -448,4 +448,158 @@ $$
 %\hline
 %\end{tabular}
 %\end{center}
+
+
+\section{Calcul du rapport de transmission d'un engrenage}
+\subsection{Étude d'un convoyeur à bande}
+\begin{exemple}
+\begin{minipage}[c]{.55\linewidth}
+Un convoyeur à bande est un dispositif de transport de manutention permettant le déplacement continue de marchandises en vrac ou de charges isolées. Il est constitué essentiellement d'une bande sans fin (ou courroie) en matériau souple entraînée par un tambour moteur. La bande, plus ou moins large, comporte un brin inférieur et un brin supérieur, lequel supporte et entraîne les marchandises posées dessus.
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/fig02}
+\end{center}
+\end{minipage}
+\end{exemple}
+
+L'objectif est de calculer le rapport de réduction du tambour moteur. 
+
+
+Les engrenages sont représentables ainsi :
+\begin{center}
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[height=3cm]{png/fig3}
+\textit{Engrenage}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=5cm]{png/fig4}
+
+\textit{Représentation 2D}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=5cm]{png/fig5}
+
+\textit{Schéma cinématique}
+\end{center}
+\end{minipage} \hfill
+\end{center}
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/fig01}
+\end{center}
+
+On donne :
+\begin{itemize}
+\item $Z_{33}=16$ et $m=1,5$;
+\item $Z_{15}=59$ et $m=1,5$;
+\item $Z_{19}=16$ et $m=2,5$;
+\item $Z_{32}=62$ et $m=2,5$.
+\end{itemize}
+
+\begin{enumerate}
+\item Réaliser le schéma cinématique minimal du moteur tambour.
+\item Réaliser le paramétrage du système.
+%\item A l'aide de votre GDI, déterminer ce qu'est le module d'un engrenage ainsi que le diamètre primitif. Donner alors la relation existant entre le module, le diamètre primitif et le nombre de dents.
+\item En utilisant l'hypothèse de roulement sans glissement entre les pièces 33 et 15, déterminer le rapport de réduction $r_1=\dfrac{\omega(19/1)}{\omega(33/1)}$.
+\item En utilisant l'hypothèse de roulement sans glissement entre les pièces 33 et 15, déterminer le rapport de réduction $r_2=\dfrac{\omega(9/1)}{\omega(19/1)}$.
+\item En déduire alors le rapport de réduction du réducteur : $r=\dfrac{\omega(9/1)}{\omega(33/1)}$.
+\end{enumerate}
+
+\subsection{Rapport de transmission dans un train d'engrenages}
+\begin{defi}
+\begin{minipage}[c]{.55\linewidth}
+Un engrenage est réalisé par la mise en contact de deux roues dentées. Parmi l'ensemble des paramètres existants, on retiendra l'existence d'un diamètre primitif, et l'existence d'un module.
+
+Dans le fonctionnement d'un engrenage, les deux roues dentées roulent sans glisser l'une par rapport à l'autre selon leur cylindre primitif. 
+
+Pour engrener, les roues dentées doivent avoir le même module.
+
+En notant $m$ le module, $Z$ le nombre de dents et $d_p$ le diamètre primitif d'une roue dentée, on a :
+$$
+d_p = mZ
+$$
+\end{minipage} \hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/gdi}
+
+\textit{D'après GDI -- Engrenages \cite{gdi}}
+\end{center}
+\end{minipage}
+\end{defi}
+
+\begin{resultat}
+Dans un train d'engrenage, en utilisant le formalisme des fonctions de transfert, le rapport de réduction peut être défini ainsi : 
+$$
+r = \dfrac{\omega_{\text{sortie/bâti}}}{\omega_{\text{entrée/bâti}}} =  \left(-1\right)^n\dfrac{\prod Z_{\text{menantes}}}{\prod Z_{\text{menées}}}
+$$
+\end{resultat}
+
+%\begin{rem}
+%Il existe aussi la notion de rapport de transmission. Dans la norme la valeur absolue de ce rapport 
+%\end{rem}
+
+\section{Calcul du rapport de transmission dans un train épicycloïdal}
+\subsection{Étude d'un compensateur de bulldozer}
+\begin{exemple}
+\begin{minipage}[c]{.55\linewidth}
+
+Un train compensateur est un élément de transmission de puissance que l'on retrouve sur les bulldozer. Il permet notamment d'adapter la vitesse de rotation délivrée par le moteur pour les roues motrices des chenilles droites et gauches.
+
+L'objectif de cette étude est de vérifier une performance du réducteur et du train compensateur dont on donne un extrait du cahier des charges fonctionnel ainsi que le dessin d'ensemble. 
+
+On donne $Z_{25}=32$, $Z_{23}=23$, $Z_{17}=78$.
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/fig7}
+\end{center}
+\end{minipage}
+\end{exemple}
+
+\begin{minipage}[c]{.4\linewidth}
+
+\begin{enumerate}
+\item Identifier les classes d'équivalence cinématique sur le dessin d'ensemble puis réaliser le schéma cinématique et le paramétrage du système.
+\item Après avoir écrit la relation de roulement sans glissement entre les roues 23 et 24 donner une relation entre $\omega_{23/28}$, $\omega_{25/17}$, $\omega_{28/17}$ et les paramètres géométriques des engrenages.
+\item Après avoir écrit la relation de roulement sans glissement entre les roues 23 et 17 donner une relation entre $\omega_{23/28}$, $\omega_{28/17}$ et les paramètres géométriques des engrenages.
+\item En déduire le rapport de réduction du train épicycloïdal : $\dfrac{\omega_{28/17}}{\omega_{25/17}}$.
+\item Donner une relation géométrique de fonctionnement entre les différents paramètres géométriques des engrenages.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/fig9}
+\end{center}
+\end{minipage}
+
+\subsection{Méthode générale de calcul de rapport du rapport de transmission dans un train épicycloïdal}
+
+\begin{methode}
+\begin{enumerate}
+\item On trace le graphe de structure.
+\item On écrit la condition de roulement sans glissement au point $I$. 
+\item On établit une première relation entre les taux de rotation en utilisant le décomposition du vecteur vitesse.
+\item On écrit la condition de roulement sans glissement au point $J$.
+\item On établit une seconde relation  entre les taux de rotation en utilisant le décomposition du vecteur vitesse.
+\item On combine les deux relations obtenues pour avoir une relation entre les taux de rotation.
+\item Si nécessaire, on utilise la décomposition du taux de rotation pour avoir le rapport de réduction final.
+\end{enumerate}
+\end{methode}
+
+
+\begin{thebibliography}{2}
+\bibitem[1]{gdi} André Chevalier, Guide du dessinateur Industriel, Éditions Hachette Technique.
+\end{thebibliography}
 \end{document}
+
+
+\end{document}
+
+
