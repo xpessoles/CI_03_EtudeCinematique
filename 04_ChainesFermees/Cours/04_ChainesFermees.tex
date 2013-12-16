@@ -315,9 +315,23 @@ Pour exprimer $\lambda$ en fonction de $\alpha$, il faut donc résoudre une équ
 \begin{methode}
 \textbf{Calcul de la loi Entrée -- Particularité géométrique}
 
-Lorqsue le mécanisme a une particularité géométrique qui se traduit sous la forme d'une relation vectorielle, on traduit cette dernière à l'aide du paramétrage.
+Lorsque le mécanisme a une particularité géométrique qui se traduit sous la forme d'une relation vectorielle, on traduit cette dernière à l'aide du paramétrage.
 
 \end{methode}
+
+\begin{exemple}
+\textit{Système bielle-manivelle}
+
+Reprenons l'exemple du système bielle - manivelle précédent. La particularité géométrique que l'on peut remarquer, est que la bielle 2 est de longueur constante $e$. Cela peut permettre de retrouver la loi entrée-sortie plus rapidement :
+\begin{align*}
+\vect{O_2 O_3}&=\vect{O_1 O_3}-\vect{O_1 O_2}\\
+e \vect{x_2}&= \lambda \vect{y_0}-d\vect{x_1}\\
+\intertext{Puis en élevant les deux membres au carré (scalaire) :}
+e^2 \vect{x_2}.\vect{x_2}&= \left(\lambda \vect{y_0}-d\vect{x_1}\right).\left( \lambda \vect{y_0}-d\vect{x_1}\right)\\
+e^2&=\lambda^2 + d^2 - 2\lambda d \sin \alpha
+\end{align*}
+On retrouve bien la même loi entrée-sortie.
+\end{exemple}
 
 \begin{exemple}
 \textit{Mélangeur}
