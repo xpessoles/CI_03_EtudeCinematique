@@ -181,7 +181,7 @@ Cependant, ce vecteur est décomposable en une somme de deux vecteurs.
 \subsubsection*{Le vecteur de pivotement}
 Ce vecteur est normal au plan $\mathcal{P}$. On le note $\vect{\Omega_p(S_2/S_1)}$. On a donc :
 $$
-\vect{\Omega_p(S_2/S_1)} = \vecto{S_2}{S_1}\cdot \vect{n_{12}}
+\vect{\Omega_p(S_2/S_1)} = ||\vecto{S_2}{S_1}\cdot \vect{n_{12}}||\cdot \vect{n_{12}}
 $$
 \subsubsection*{Le vecteur de roulement}
 Ce vecteur est contenu dans le plan $\mathcal{P}$. On le note $\vect{\Omega_r(S_2/S_1)}$.
@@ -288,8 +288,8 @@ $$
 \subsection*{Décomposition en mouvements simples}
 D'après la composition des mouvements, on a : 
 $$
-\vect{V(I,S_2/S_1)} = \vect{V(I,S_2/S_1)} + \vect{V(I,S_0/S_1)}
-= \vect{V(I,S_2/S_1)} - \vect{V(I,S_1/S_0)}
+\vect{V(I,S_1/S_2)} = \vect{V(I,S_1/S_0)} + \vect{V(I,S_0/S_2)}
+= \vect{V(I,S_1/S_0)} - \vect{V(I,S_2/S_0)}
 $$
 
 %\begin{center}
@@ -395,17 +395,17 @@ $$
 %\end{tabular}
 %\end{center}
 
-\subsection*{Calcul de $\vect{V(I,S_2/S_1)}$}
+\subsection*{Calcul de $\vect{V(I,S_1/S_2)}$}
 
 Au final, on a :
 $$
-\vect{V(I,S_2/S_1)} = \vect{V(I,S_2/S_1)} - \vect{V(I,S_1/S_0)}
+\vect{V(I,S_1/S_2)} = \vect{V(I,S_1/S_0)} - \vect{V(I,S_2/S_0)}
 = R\dot{\theta}\vect{x_0} + e\dot{\theta}\vect{y_1} +\dot{\lambda}(t) \vect{y_0}
 $$
 
 En projetant $\vect{y_1}$ dans $\mathcal{R}_0$ : 
 $$
-\vect{V(I,S_2/S_1)} 
+\vect{V(I,S_1/S_2)} 
 = R\dot{\theta}\vect{x_0} + e\dot{\theta}\left( \cos\theta \vect{y_0} - \sin\theta \vect{x_0} \right)+\dot{\lambda}(t) \vect{y_0} 
 = \left(R\dot{\theta} - e\dot{\theta}\sin\theta \right) \vect{x_0} + \left(e\dot{\theta} \cos\theta +\dot{\lambda}(t) \right) \vect{y_0}
 $$
@@ -414,7 +414,7 @@ Or, d'après la loi entrée-sortie, $e\dot{\theta}\cos \theta +\dot{\lambda}(t) 
 
 On a donc :
 $$
-\vect{V(I,S_2/S_1)} 
+\vect{V(I,S_1/S_2)} 
 = \dot{\theta}\left(R - e\sin\theta \right) \vect{x_0} 
 $$
 

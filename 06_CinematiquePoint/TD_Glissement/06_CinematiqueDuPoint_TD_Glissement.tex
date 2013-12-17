@@ -8,7 +8,7 @@
 \setboolean{xp}{true}
 
 \newboolean{prof}
-\setboolean{prof}{true}
+\setboolean{prof}{false}
 
 \def\xxtitre{\ifthenelse{\boolean{xp}}{
 CI 3 -- CIN : Étude du comportement cinématique des systèmes}{
@@ -210,7 +210,8 @@ Le tracé Excel permet de valider que la vitesse de rotation de la croix de Malt
 
 
 \subparagraph{}
-\textit{Donner l'expression du torseur cinématique de $S_1$ par rapport à $S_0$ au point $I$.}
+%\textit{Donner l'expression du torseur cinématique de $S_1$ par rapport à $S_0$ au point $I$.}
+\textit{Donner l'expression de $\vect{V(I,S_1/S_0)}$ et $\vecto{S_1}{S_0}$.}
 
 \ifthenelse{\boolean{prof}}{%
 \begin{corrige}
@@ -247,7 +248,8 @@ $$
 }
 
 \subparagraph{}
-\textit{Donner l'expression du torseur cinématique de $S_2$ par rapport à $S_0$ au point $I$.}
+%\textit{Donner l'expression du torseur cinématique de $S_2$ par rapport à $S_0$ au point $I$.}
+\textit{Donner l'expression de $\vect{V(I,S_2/S_0)}$ et $\vecto{S_2}{S_0}$.}
 \ifthenelse{\boolean{prof}}{%
 \begin{corrige}
 $$\{\mathcal{V}(S_2/S_0)\} = 
@@ -415,8 +417,8 @@ $$
 \end{corrige}}{}
 
 \subparagraph{}
-\textit{Calculer la vitesse de rotation du galet $\dot{\gamma}$ en commençant par exprimer $\vect{V_I(S_3/S_2)}$?}
-\textit{Indice : décomposer $\vect{V_I(S_3/S_2)}$ en fonction de mouvements connus}
+\textit{Calculer la vitesse de rotation du galet $\dot{\gamma}$ en commençant par exprimer $\vect{V(I,S_3/S_2)}$?}
+\textit{Indice : décomposer $\vect{V(I,S_3/S_2)}$ en fonction des mouvements connus.}
 \ifthenelse{\boolean{prof}}{%
 \begin{corrige}
 
@@ -499,6 +501,10 @@ $$
 
 \setcounter{subparagraph}{0}
 \subsection*{Exercice 2 : Roulement à billes}
+\begin{flushleft}
+\textit{D'après ressources de Renan Bonnard.}
+\end{flushleft}
+
 Un roulement mécanique est un élément technologique permettant le positionnement, la transmission des efforts et la rotation entre deux pièces par roulement. Ce composant mécanique interposé entre les deux pièces optimise le frottement et la précision de la liaison. Un roulement à billes se présente sous la forme de deux bagues coaxiales entre lesquelles sont placées des billes maintenues espacées par une cage. La fonction de la cage est donc de maintenir deux billes consécutives à distance égale l'une de l'autre lors du fonctionnement du roulement mais elle entraîne aussi des effets nuisibles car il existe un phénomène de glissement entre la cage et les billes. \textbf {L'objectif est d'étudier ce phénomène de glissement.}
 
 \begin{center}
