@@ -131,7 +131,7 @@ On note :
 \begin{itemize}
 \item $\mathcal{R}=\left( O,\vect{x_0},\vect{y_0},\vect{z_0}\right)$ le repère lié au bâti $S_0$. On note $\vect{OB}=-L\vect{x_0}$ avec $L = 145\; mm$;
 \item $\mathcal{R}_1=\left( O,\vect{x_1},\vect{y_1},\vect{z_1}\right)$ le repère lié à l'arbre $S_1$. On pose $\vect{OA}=R\vect{y_1}$  avec $R =141\;mm$ et $\alpha = \left( \vect{x_0}, \vect{x_1}\right)$. L'arbre $S_1$ est lié au motoréducteur de la capsuleuse. On a : $\dot{\alpha} = 10\;tr/min$;
-\item  $\mathcal{R}_2=\left( C,\vect{x_2},\vect{y_2},\vect{z_2}\right)$ le repère lié à l'arbre $S_2$. On pose $\vect{BA}=\lambda(t)\vect{x_2}$,  $\vect{AI}=r\vect{y_2}$ et $\beta = \left( \vect{x_0}, \vect{x_2}\right)$;
+\item  $\mathcal{R}_2=\left( B,\vect{x_2},\vect{y_2},\vect{z_2}\right)$ le repère lié à l'arbre $S_2$. On pose $\vect{BA}=\lambda(t)\vect{x_2}$,  $\vect{AI}=r\vect{y_2}$ et $\beta = \left( \vect{x_0}, \vect{x_2}\right)$;
 \end{itemize}
 
 
@@ -284,7 +284,7 @@ $$
 }
 
 \subparagraph{}
-\textit{En déduire l'expression du torseur cinématique de $S_2$ par rapport à $S_1$ au point $I$ et $\vect{V(I,S_2/S_1)}$ dans la base $\mathcal{R}_2$. On donne $ \vect{x_1} 
+\textit{En déduire l'expression de $\vect{V(I,S_2/S_1)}$ dans la base $\mathcal{R}_2$. On donne $ \vect{x_1} 
 =\cos(\alpha-\beta)\vect{x_2} + \sin(\alpha-\beta)\vect{y_2}
 $.}
 
@@ -342,19 +342,20 @@ $$
 }
 
 \subparagraph{}
-\textit{D'après le paramétrage adopté, quelle est la direction du vecteur vitesse du solide $S_1$ par rapport à $S_2$ ? Calculer ce vecteur comme dérivée du vecteur position. En utilisant les résultats de la question précédente, déduire une condition de fonctionnement du mécanisme.}
+\textit{D'après le paramétrage adopté, quelle est la direction du vecteur vitesse du solide $S_1$ par rapport à $S_2$ ? %Calculer ce vecteur comme dérivée du vecteur position. 
+En utilisant les résultats de la question précédente, déduire une condition de fonctionnement du mécanisme.}
 
 
 \ifthenelse{\boolean{prof}}{%
 \begin{corrige}
 
-Le vecteur vitesse devrait être orienté suivant $\vect{x_2}$. La dérivation du vecteur position donne ainsi : 
-$$\left[
-\dfrac{d\vect{BI}}{dt}
-\right]_{\mathcal{R}_2} = \dot{\lambda}\vect{x_2}
-$$
+%Le vecteur vitesse devrait être orienté suivant $\vect{x_2}$. La dérivation du vecteur position %donne ainsi : 
+%$$\left[
+%\dfrac{d\vect{BI}}{dt}
+%\right]_{\mathcal{R}_2} = \dot{\lambda}\vect{x_2}
+%$$
 
-Ainsi, nécessairement :
+Nécessairement, la vitesse de glissement appartient au plan tangent au contact. On a donc :
 $$
 \left\{
 \begin{array}{l}
@@ -368,7 +369,7 @@ $$
 }{}
 
 \subparagraph{}
-\textit{$\vect{V(I,S_2/S_1)}\cdot\vect{y_2}$ est appelée \textbf{vitesse de glissement}. Quel problème technologique pose l'existence de cette vitesse ? Ce problème est-il pris en compte sur la capsuleuse ? Si oui, comment ? Si non, proposez une modification du système permettant la prise en compte de ce problème.}
+\textit{$\vect{V(I,S_2/S_1)}\cdot\vect{x_2}$ est appelée \textbf{vitesse de glissement}. Quel problème technologique pose l'existence de cette vitesse ? Ce problème est-il pris en compte sur la capsuleuse ? Si oui, comment ? Si non, proposez une modification du système permettant la prise en compte de ce problème.}
 
 \ifthenelse{\boolean{prof}}{%
 \begin{corrige}
@@ -515,7 +516,7 @@ On désigne par :
 \begin{itemize}
 \item $\mathcal{R}_0 = \left(O,\vect{x_0},\vect{y_0},\vect{z_0}\right)$ le repère associé au bâti 0;
 \item $\mathcal{R}_1 = \left(O,\vect{x_1},\vect{y_1},\vect{z_0}\right)$ le repère associé à la bague intérieure 1 en liaison pivot d'axe $(O,\vect{z_0})$ avec le bâti 0 tel que $\theta_1 = \left(\vect{x_0},\vect{x_1}\right) = \left(\vect{y_0},\vect{y_1}\right)$;
-\item $\mathcal{R}_2 = \left(O,\vect{x_2},\vect{y_2},\vect{z_0}\right)$ le repère associé à la bague intérieure 2 en liaison pivot d'axe $(O,\vect{z_0})$ avec le bâti 0 tel que $\theta_2 = \left(\vect{x_0},\vect{x_2}\right) = \left(\vect{y_0},\vect{y_2}\right)$;
+\item $\mathcal{R}_2 = \left(O,\vect{x_2},\vect{y_2},\vect{z_0}\right)$ le repère associé à la bague extérieure 2 en liaison pivot d'axe $(O,\vect{z_0})$ avec le bâti 0 tel que $\theta_2 = \left(\vect{x_0},\vect{x_2}\right) = \left(\vect{y_0},\vect{y_2}\right)$;
 \item $\mathcal{R}_3 = \left(G,\vect{x_3},\vect{y_3},\vect{z_0}\right)$ le repère associé à la bille 3 qui roule sans glisser sur 1 en I et sur 2 en J et dont on peut considérer qu'elle est en liaison pivot d'axe $(G,\vect{z_0})$ avec la cage 4 tel que $\theta_3 = \left(\vect{x_0},\vect{x_3}\right) = \left(\vect{y_0},\vect{y_3}\right)$;
 \item $\mathcal{R}_4 = \left(O,\vect{x_4},\vect{y_4},\vect{z_0}\right)$ le repère associé à la cage 4 en mouvement de rotation autour de $(O,\vect{z_0})$ tel que $\theta_4 = \left(\vect{x_0},\vect{x_4}\right) = \left(\vect{y_0},\vect{y_4}\right)$.
 \end{itemize}
