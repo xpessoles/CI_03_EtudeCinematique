@@ -579,6 +579,125 @@ On donne $Z_{25}=32$, $Z_{23}=23$, $Z_{17}=78$.
 \end{center}
 \end{minipage}
 
+\subsubsection{Modélisation du train épicycloïdal}
+\begin{minipage}[c]{.9\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{png/schema_epi}
+\end{center}
+\end{minipage}
+
+\begin{minipage}[c]{.34\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{png/graphe_liaisons}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.64\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/parametrage_epi}
+\end{center}
+\end{minipage}
+On pose :
+$$
+\dfrac{d\theta_1(t)}{dt} = \omega(1/0)(t)
+\quad
+\dfrac{d\theta_2(t)}{dt} =\omega(3/0)(t)
+\quad
+\dfrac{d\theta_3(t)}{dt} =\omega(3/2)(t)
+$$
+\begin{obj}
+L'objectif est de déterminer le rapport $\dfrac{\omega_2(t)}{\omega_1(t)}$.
+\end{obj}
+\subsubsection{Roulement sans glissement en $I$}
+D'après l'hypothèse de roulement sans glissement exprimée au point $I$, on a : 
+$$
+\vectv{I}{1}{2} = \vect{0} 
+\Longleftrightarrow 
+\vectv{I}{1}{0} + \vectv{I}{0}{3} + \vectv{I}{3}{2} = \vect{0} 
+\Longleftrightarrow 
+\vectv{I}{1}{0} - \vectv{I}{3}{0} + \vectv{I}{3}{2} = \vect{0} 
+$$
+
+\begin{minipage}[c]{.3\linewidth}
+\begin{eqnarray*}
+\vectv{I}{1}{0} &=& \vectv{O}{1}{0} + \vect{IO} \wedge \vecto{1}{0} \\
+&=& \vect{0} -R_1\vect{x_3}\wedge\omega(1/0)\vect{z_0} \\
+& = & R_1 \omega(1/0)\vect{y_3} 
+\end{eqnarray*}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{eqnarray*}
+\vectv{I}{3}{0} &=& \vectv{O}{3}{0} + \vect{IO} \wedge \vecto{3}{0} \\
+&= &\vect{0} -R_1\vect{x_3}\wedge\omega(3/0)\vect{z_0} \\
+&= & R_1 \omega(3/0)\vect{y_3} 
+\end{eqnarray*}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{eqnarray*}
+\vectv{I}{3}{2} &=& \vectv{A}{3}{2} + \vect{IA} \wedge \vecto{3}{2} \\
+&=& \vect{0} + R_2\vect{x_3}\wedge\omega(3/2)\vect{z_0} \\
+& = & -R_2 \omega(3/2)\vect{y_3} 
+\end{eqnarray*}
+\end{minipage}
+
+\vspace{.25cm}
+
+Au final, 
+$$
+R_1 \omega(1/0)\vect{y_3}  -R_1 \omega(3/0)\vect{y_3}  -R_2 \omega(3/2)\vect{y_3} = \vect{0}
+\Longrightarrow
+R_1 \omega(1/0) -R_1 \omega(3/0)  -R_2 \omega(3/2) = 0
+$$
+
+\subsubsection{Roulement sans glissement en $J$}
+D'après l'hypothèse de roulement sans glissement exprimée au point $J$, on a : 
+$$
+\vectv{J}{2}{0} = \vect{0}
+\Longleftrightarrow 
+\vectv{J}{2}{3} + \vectv{J}{3}{0}= \vect{0}
+\Longleftrightarrow 
+-\vectv{J}{3}{2} + \vectv{J}{3}{0}= \vect{0}
+$$
+
+\begin{minipage}[c]{.45\linewidth}
+\begin{eqnarray*}
+\vectv{J}{3}{2} &=& \vectv{A}{3}{2} + \vect{JA}\wedge\vecto{3}{2} \\
+& = & -R_2\vect{x_3} \wedge \omega(3/2)\vect{z_0}\\
+& = & R_2 \omega(3/2)\vect{y_3}
+\end{eqnarray*}
+\end{minipage}\hfill
+\begin{minipage}[c]{.45\linewidth}
+\begin{eqnarray*}
+\vectv{J}{3}{0} &=& \vectv{O}{3}{0} + \vect{JO}\wedge\vecto{3}{0} \\
+& = & -R_0\vect{x_3} \wedge \omega(3/0)\vect{z_0} \\
+& = & R_0 \omega(3/0)\vect{y_3}
+\end{eqnarray*}
+\end{minipage}
+
+\vspace{.25cm}
+
+Au final, 
+$$
+-R_2 \omega(3/2)\vect{y_3} + R_0 \omega(3/0)\vect{y_3}= \vect{0}
+\Longrightarrow 
+-R_2 \omega(3/2) + R_0 \omega(3/0)= 0
+$$
+
+\subsubsection{Calcul du rapport de réduction}
+Les deux relations obtenues sont donc les suivantes : 
+$$
+R_1 \omega(1/0) -R_1 \omega(3/0)  -R_2 \omega(3/2) = 0 
+\quad \text{et} \quad
+-R_2 \omega(3/2) + R_0 \omega(3/0)= 0
+$$
+
+Il est donc nécessaire de supprimer $\omega(3/2)$ :
+$$
+R_1 \omega(1/0) -R_1 \omega(3/0) +  R_0 \omega(3/0) = 0 
+\Longleftrightarrow
+R_1 \omega(1/0) + \omega(3/0) \left(R_0 -R_1 \right) = 0 
+\Longleftrightarrow
+\dfrac{\omega(3/0)}{\omega(1/0)} = \dfrac{R_1}{R_1 -R_0}
+$$
 \subsection{Méthode générale de calcul de rapport du rapport de transmission dans un train épicycloïdal}
 
 \begin{methode}
