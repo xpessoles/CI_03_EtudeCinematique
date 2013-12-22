@@ -580,7 +580,7 @@ On donne $Z_{25}=32$, $Z_{23}=23$, $Z_{17}=78$.
 \end{minipage}
 
 \subsubsection{Modélisation du train épicycloïdal}
-\begin{minipage}[c]{.9\linewidth}
+\begin{minipage}[c]{.8\linewidth}
 \begin{center}
 \includegraphics[width=\textwidth]{png/schema_epi}
 \end{center}
@@ -605,39 +605,49 @@ $$
 \dfrac{d\theta_3(t)}{dt} =\omega(3/2)(t)
 $$
 \begin{obj}
-L'objectif est de déterminer le rapport $\dfrac{\omega_2(t)}{\omega_1(t)}$.
+L'objectif est de déterminer le rapport $\dfrac{\omega(3/0)(t)}{\omega(1/0)(t)}$.
 \end{obj}
 \subsubsection{Roulement sans glissement en $I$}
+\begin{minipage}[c]{.6\linewidth}
 D'après l'hypothèse de roulement sans glissement exprimée au point $I$, on a : 
-$$
-\vectv{I}{1}{2} = \vect{0} 
-\Longleftrightarrow 
-\vectv{I}{1}{0} + \vectv{I}{0}{3} + \vectv{I}{3}{2} = \vect{0} 
-\Longleftrightarrow 
+$$\vectv{I}{1}{2} = \vect{0} $$
+$$ \Longleftrightarrow \vectv{I}{1}{0} + \vectv{I}{0}{3} + \vectv{I}{3}{2} = \vect{0}$$
+$$\Longleftrightarrow 
 \vectv{I}{1}{0} - \vectv{I}{3}{0} + \vectv{I}{3}{2} = \vect{0} 
 $$
-
-\begin{minipage}[c]{.3\linewidth}
-\begin{eqnarray*}
-\vectv{I}{1}{0} &=& \vectv{O}{1}{0} + \vect{IO} \wedge \vecto{1}{0} \\
-&=& \vect{0} -R_1\vect{x_3}\wedge\omega(1/0)\vect{z_0} \\
-& = & R_1 \omega(1/0)\vect{y_3} 
-\end{eqnarray*}
-\end{minipage}\hfill
-\begin{minipage}[c]{.3\linewidth}
-\begin{eqnarray*}
-\vectv{I}{3}{0} &=& \vectv{O}{3}{0} + \vect{IO} \wedge \vecto{3}{0} \\
-&= &\vect{0} -R_1\vect{x_3}\wedge\omega(3/0)\vect{z_0} \\
-&= & R_1 \omega(3/0)\vect{y_3} 
-\end{eqnarray*}
-\end{minipage}\hfill
-\begin{minipage}[c]{.3\linewidth}
-\begin{eqnarray*}
-\vectv{I}{3}{2} &=& \vectv{A}{3}{2} + \vect{IA} \wedge \vecto{3}{2} \\
-&=& \vect{0} + R_2\vect{x_3}\wedge\omega(3/2)\vect{z_0} \\
-& = & -R_2 \omega(3/2)\vect{y_3} 
-\end{eqnarray*}
 \end{minipage}
+\begin{minipage}[c]{.3\linewidth}\hfill
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/graphe_i}
+\end{center}
+\end{minipage}
+
+%\begin{minipage}[c]{.3\linewidth}
+\begin{tabular}{p{.3\textwidth}|p{.3\textwidth}|p{.3\textwidth}}
+\begin{eqnarray*}
+\lefteqn{\vectv{I}{1}{0}} \\
+&=& \vectv{O}{1}{0} + \vect{IO} \wedge \vecto{1}{0} \\
+&=& \vect{0} -R_1\vect{x_3}\wedge\omega(1/0)\vect{z_0} \\
+&=& R_1 \omega(1/0)\vect{y_3} 
+\end{eqnarray*}&
+%\end{minipage}\hfill
+%\begin{minipage}[c]{.3\linewidth}
+\begin{eqnarray*}
+\lefteqn{\vectv{I}{3}{0}} \\
+&= &\vectv{O}{3}{0} + \vect{IO} \wedge \vecto{3}{0} \\
+&= &\vect{0} -R_1\vect{x_3}\wedge\omega(3/0)\vect{z_0} \\
+&=&  R_1 \omega(3/0)\vect{y_3} 
+\end{eqnarray*}&
+%\end{minipage}\hfill
+%\begin{minipage}[c]{.3\linewidth}
+\begin{eqnarray*}
+\lefteqn{\vectv{I}{3}{2}} \\
+&=& \vectv{A}{3}{2} + \vect{IA} \wedge \vecto{3}{2} \\
+&=& \vect{0} + R_2\vect{x_3}\wedge\omega(3/2)\vect{z_0} \\
+&=& -R_2 \omega(3/2)\vect{y_3} 
+\end{eqnarray*}
+%\end{minipage}
+\end{tabular}
 
 \vspace{.25cm}
 
@@ -649,6 +659,7 @@ R_1 \omega(1/0) -R_1 \omega(3/0)  -R_2 \omega(3/2) = 0
 $$
 
 \subsubsection{Roulement sans glissement en $J$}
+\begin{minipage}[c]{.6\linewidth}
 D'après l'hypothèse de roulement sans glissement exprimée au point $J$, on a : 
 $$
 \vectv{J}{2}{0} = \vect{0}
@@ -657,6 +668,13 @@ $$
 \Longleftrightarrow 
 -\vectv{J}{3}{2} + \vectv{J}{3}{0}= \vect{0}
 $$
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{png/graphe_j}
+\end{center}
+\end{minipage}
+
 
 \begin{minipage}[c]{.45\linewidth}
 \begin{eqnarray*}
@@ -692,12 +710,28 @@ $$
 
 Il est donc nécessaire de supprimer $\omega(3/2)$ :
 $$
-R_1 \omega(1/0) -R_1 \omega(3/0) +  R_0 \omega(3/0) = 0 
+R_1 \omega(1/0) -R_1 \omega(3/0) -  R_0 \omega(3/0) = 0 
 \Longleftrightarrow
-R_1 \omega(1/0) + \omega(3/0) \left(R_0 -R_1 \right) = 0 
+R_1 \omega(1/0) + \omega(3/0) \left(R_0 +R_1 \right) = 0 
 \Longleftrightarrow
-\dfrac{\omega(3/0)}{\omega(1/0)} = \dfrac{R_1}{R_1 -R_0}
+\dfrac{\omega(3/0)}{\omega(1/0)} = \dfrac{R_1}{R_1 +R_0}
 $$
+
+En conclusion :
+$$
+\dfrac{\omega(3/0)}{\omega(1/0)} = \dfrac{Z_1}{Z_1 +Z_0}
+$$
+
+\subsubsection{Relation géométrique}
+
+Dans un train épicycloïdal, il est possible d'écrire une relation entre les nombres de dents qui correspond à une relation géométrique. On peut donc par exemple écrire la relation d'entre axe entre l'axe du satellite et l'axe du planétaire (ou du porte-satellite) que :
+$$
+OA = OI + IA \Longleftrightarrow 
+R_1 + R_2 = R_0 - R_2
+\Longleftrightarrow 
+Z_0 = Z_1 + 2Z_2
+$$
+
 \subsection{Méthode générale de calcul de rapport du rapport de transmission dans un train épicycloïdal}
 
 \begin{methode}
