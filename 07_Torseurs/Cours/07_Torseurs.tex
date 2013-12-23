@@ -103,12 +103,57 @@ erreurs ou coquilles.}
 Un torseur est constitué :
 \begin{itemize}
 \item d'un vecteur résultant $\vect{R}$;
-\item d'un champ de vecteur *** $\mathcal{M]$ tel que pour tout couples de points $(A,B)$ on a : 
-$$
+\item d'un champ de vecteur *** $\mathcal{M}$ tel que pour tout couples de points $(A,B)$ on a : 
+$$*** $$
 \end{itemize}
 \end{defi}
 
+Cette relation est appelée relation caractéristique des torseurs ou relation de Varignon.
 
+Réciproquement, tout champ de vecteurs   qui vérifie la relation de Varignon pour tout couple de points $A$ et $B$, le vecteur $\vect{R}$ étant indépendant du bipoint $(A,B)$, est le champ de vecteurs d'un torseur.
+
+\subsection{Expression en un point}
+Si le champ de vecteurs est connu en un point, on peut le connaître en tout autre point en utilisant la relation de Varignon. Le torseur sera donc noté :
+$$
+\torseur{\mathcal{T}}=\torseurcol{}{}{}{}{}{}{}
+\quad \text{au point }A, \quad 
+\torseur{\mathcal{T}}=\torseurcol{}{}{}{}{}{}{}
+\quad \text{au point }B \text{ avec } ***
+$$
+On appelle :
+\begin{itemize}
+\item $\vect{R}$ la résultante du torseur;
+\item $\vect{\mathcal{M}_A}$ le moment au point $A$ du torseur. Ce nom est donné par analogie avec la définition du moment en un point d'un pointeur;
+\item $\vect{R}$ et $\vect{\mathcal{M}_A}$ sont les éléments de réduction du torseur. Ce sont deux vecteurs dont on peut faire une représentation graphique au point $A$.
+\end{itemize}
+
+\subsection{Notation des torseurs}
+Les torseurs sont utilisés en cinématique, statique, dynamique, métrologie, \textit{etc}. Le torseur est exprimé en général par une lettre majuscule significative de ce que l'on étudie. Cette lettre est encadrée d'accolades :
+$$
+\torseur{\mathcal{T}}, \torseur{\mathcal{V}(2/1)}, \torseur{\mathcal{F}(1\rightarrow 2)}, \torseur{\mathcal{U}(1/2)}, \torseur{\mathcal{C}(1/2)}, \torseur{\mathcal{D}(1/2)}
+$$
+
+Pour travailler sur ces torseurs, il est plus commode de le faire avec ses éléments de réduction. Le moment dépend du point d'expression. Il faut donc que la notation précise bien ce point :
+
+$$
+\torseur{\mathcal{T}} = \torseurl{\vect{R}}{\vect{\mathcal{M}_A}}
+\quad \text{ou}\quad
+\torseur{\mathcal{T}} =\torseur{\vect{R},\vect{\mathcal{M}_A}} 
+$$
+
+$$
+\torseur{\mathcal{T}} = \torseurl{\vect{R}}{3\vect{x}+2\vect{y}}{A}
+\quad \text{ou}\quad
+\torseur{\mathcal{T}} =\torseur{\vect{R},3\vect{x}+2\vect{y}}_A
+$$
+
+Le point $A$ apparaît à l'intérieur ou à l'extérieur des accolades (par exemple, en indice à gauche ou à droite des accolades).
+
+On peut aussi exprimer des éléments de réduction en projection sur une même base $\mathcal{B}$ et les écrire en colonne en précisant bien la base de projection :
+
+$$
+\torseur{\mathcal{T}}=\torseurcol{-6}{a}{1}{3}{2}{0}{A,\mathcal{B}}
+$$
 \begin{thebibliography}{2}
 \bibitem[1]{gdi} André Chevalier, Guide du dessinateur Industriel, Éditions Hachette Technique.
 \end{thebibliography}
