@@ -1,0 +1,120 @@
+\documentclass[10pt,oneside]{article}
+\input{style/coursHeadings}
+
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+
+\def\xxtitre{\ifthenelse{\boolean{xp}}{
+CI 3 -- CIN : Étude du comportement cinématique des systèmes}{
+}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 7 -- }{
+}}
+
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+\noindent 2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+}}
+
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 3 : CIN -- Cours \\
+Ch 7 : Torseurs -- \ifthenelse{\boolean{prof}}{P}{E}%
+}{
+}}
+
+\usepackage[%
+    pdftitle={CIN : Cinématique du point},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\usepackage{pifont}
+\sloppy
+\hyphenpenalty 10000
+
+
+\begin{document}
+
+
+\input{style/entete1}
+
+\begin{center}
+ \huge\textsc{\xxtitre}
+
+\end{center}
+
+\begin{center}
+ \LARGE\textsc{\xxsoustitre}
+\end{center}
+
+\begin{savoir}
+\textbf{Savoirs :}
+\begin{itemize}
+\item Mod-- C12 -- S2 : Identifier, dans le cas du contact ponctuel, le vecteur vitesse de glissement ainsi que les vecteurs rotation de roulement et de pivotement.
+\end{itemize}
+\end{savoir}
+
+\begin{center}
+\begin{tabular}{ccc}
+%\includegraphics[height=3.5cm]{png/fig1} &
+%\includegraphics[height=3.5cm]{png/fig2}\\
+%\textit{Modèle CAO d'un} & \textit{Modélisation par}\\
+%\textit{arbre à came} & \textit{schéma cinématique}\\
+\end{tabular}
+\end{center}
+
+
+%\begin{savoir}
+%\textsc{Savoirs :}
+%\begin{itemize}
+%\item Connaître les principes de la cinématique des contacts (adhérence ou glissement, roulement et pivotement)
+%\end{itemize}
+%\end{savoir}
+
+\setlength{\parskip}{0ex plus 0.2ex minus 0ex}
+ \renewcommand{\contentsname}{}
+ \renewcommand{\baselinestretch}{1}
+
+\tableofcontents
+
+ \renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+% \vspace{1cm}
+\textit{Ce document est en évolution permanente. Merci de signaler toutes
+erreurs ou coquilles.}
+
+
+\section{Définitions}
+\subsection{Torseurs}
+
+\begin{defi}
+Un torseur est constitué :
+\begin{itemize}
+\item d'un vecteur résultant $\vect{R}$;
+\item d'un champ de vecteur *** $\mathcal{M]$ tel que pour tout couples de points $(A,B)$ on a : 
+$$
+\end{itemize}
+\end{defi}
+
+
+\begin{thebibliography}{2}
+\bibitem[1]{gdi} André Chevalier, Guide du dessinateur Industriel, Éditions Hachette Technique.
+\end{thebibliography}
+\end{document}
+
+
+\end{document}
+
+
