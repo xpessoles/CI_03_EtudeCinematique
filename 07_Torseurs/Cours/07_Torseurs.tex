@@ -63,7 +63,7 @@ Ch 7 : Torseurs -- \ifthenelse{\boolean{prof}}{P}{E}%
 \begin{itemize}
 \item Mod-- C11.1 : déplacement des points d’un solide : repère lié à un solide, paramètres géométriques linéaires et angulaires définissant la position d'un solide par rapport à un autre, déplacements et petits déplacements d'un solide, torseur des petits déplacements;
 \item Mod-- C11.3 : torseur cinématique caractérisant le mouvement d’un solide;
-\item Mod-C11-S7 : écrire le torseur cinématique caractérisant le mouvement d’un solide.
+\item Mod--C11--S7 : écrire le torseur cinématique caractérisant le mouvement d’un solide.
 \end{itemize}
 \end{savoir}
 
@@ -179,27 +179,42 @@ $$
 Les six composantes des éléments de réduction sont appelées les coordonnées pluckériennes du torseur.
 
 \subsection{Invariants}
+\begin{defi}
+\textbf{Invariants}
+
 On appelle invariants d'un torseur, des quantités qui restent constantes quel que soit le point de calcul.
+\end{defi}
 
-\subsubsection{Invariant vectoriel}
+\begin{defi}
+\textbf{Invariant vectoriel}
+
 C'est la résultante du torseur.
+\end{defi}
 
-\subsubsection{Invariant scalaire}
+\begin{defi}
+\textbf{Invariant scalaire}
 
 $$
 I = \vect{R} \cdot \vect{\mathcal{M}_A}
 $$
-Exprimons $\vect{R}\cdot \vect{\mathcal{M}_B}$ , en utilisant le moment au point $A$ pour prouver que $I$ est bien invariant.
+\end{defi}
 
 \begin{demo}
-\begin{eqnarray*}
-\vect{R}\cdot \vect{\mathcal{M}_B} & =& \vect{R}\cdot \left[\vect{\mathcal{M}_A}+\vect{BA}\wedge \vect{R}\right] = 
- \vect{R}\cdot \vect{\mathcal{M}_A}+ \underbrace{\vect{R}\cdot \left(\vect{BA}\wedge \vect{R}\right)}_{\vect{0}}\\
-&=&  \vect{R}\cdot \vect{\mathcal{M}_A} = I
-\end{eqnarray*}
+Exprimons $\vect{R}\cdot \vect{\mathcal{M}_B}$ , en utilisant le moment au point $A$ pour prouver que $I$ est bien invariant.
+
+%\begin{eqnarray*}
+$$
+\vect{R}\cdot \vect{\mathcal{M}_B} %& 
+=%& 
+\vect{R}\cdot \left[\vect{\mathcal{M}_A}+\vect{BA}\wedge \vect{R}\right] = 
+ \vect{R}\cdot \vect{\mathcal{M}_A}+ \underbrace{\vect{R}\cdot \left(\vect{BA}\wedge \vect{R}\right)}_{\vect{0}} %\\&
+=%&
+  \vect{R}\cdot \vect{\mathcal{M}_A} = I
+$$%\end{eqnarray*}
 \end{demo}
 
 \subsection{Axe central}
+\begin{defi}
 Un point $K$ de l'espace est central pour le torseur $\torseur{T}$ si la résultante est colinéaire au moment en ce point :  
 $$\vect{\mathcal{M}_K} =k \vect{R}$$
 avec $k$ est appelé pas du torseur.
@@ -207,6 +222,8 @@ avec $k$ est appelé pas du torseur.
 On démontre que l'ensemble des points centraux pour le torseur considéré est une droite appelée axe central. 
 
 L'axe central est  parallèle à  $\vect{R}$.
+
+\end{defi}
 
 \subsection{Moment central}
 \begin{defi}
@@ -252,15 +269,19 @@ $$
 \end{defi}
 
 \begin{prop}
+Le moment d'un torseur couple est inchangé lorsqu'on l'exprime en un autre point.  On peut donc le noter plus simplement :
+$
+\torseur{\mathcal{T}} = \torseurl{\vect{0}}{\vect{\mathcal{M}}}{} 
+$. (Dans ce cas, la notation du point n'est pas indispensable.)
+\end{prop}
+
+\begin{demo}
 En appliquant la relation caractéristique des torseurs on trouve : 
 $$
 \vect{\mathcal{M}_B}=\vect{\mathcal{M}_A}+\vect{BA}\wedge\vect{R} =\vect{\mathcal{M}_A} + \vect{0}=\vect{\mathcal{M}_A}
 $$
-Le moment est inchangé lorsqu'on l'exprime en un autre point. On peut donc le noter plus simplement :
-$
-\torseur{\mathcal{T}} = \torseurl{\vect{0}}{\vect{\mathcal{M}}}{} 
-$ est un torseur couple. Dans ce cas, la notation du point n'est pas indispensable.
-\end{prop}
+
+\end{demo}
 
 \subsection{Glisseur}
 
@@ -378,10 +399,418 @@ c=\torseur{\mathcal{T}_1} \cdot \torseur{\mathcal{T}_2}&=&
 &=&\vect{R_1}\cdot\vect{\mathcal{M}_{2,B}} + \vect{R_2}\cdot\vect{\mathcal{M}_{1,B}}
 \end{eqnarray*}
 \end{demo}
+
+\section{Torseur cinématique}
+
+\subsection{Définition}
+Soient $S_1$ et $S_2$ deux solides en mouvement l'un par rapport à l'autre dans un repère $\mathcal{R}_0$. On peut donc définir $\vecto{S_2}{S_1}$. Par ailleurs, En un point $P$ de $\mathcal{R}_0$, on peut donc définir $\vectv{P}{S_2}{S_1}$.
+
+On a vu que $\vecto{S_2}{S_1}$ est un vecteur invariant (car il ne dépend pas d'un point). 
+
+Par ailleurs, pour tout couple de points $A$ et $B$, on a 
+$$
+\vectv{B}{S_2}{S_1} = \vectv{A}{S_2}{S_1} + \vect{BA}\wedge \vecto{S_2}{S_1}
+$$
+
+\begin{defi}
+\textbf{Torseur cinématique}
+
+On note $\torseurcin{B}{S_2}{S_1}$ le torseur cinématique caractérisant le mouvement entre $S_2$ et $S_1$ et on a :
+$$
+\torseurcin{V}{S_2}{S_1} = 
+\torseurl{\vecto{S_2}{S_1}}{\vectv{A}{S_2}{S_1}}{A}
+$$
+
+\begin{itemize}
+\item $\vecto{S_2}{S_1}$ est la résultante du torseur cinématique.
+\item $\vectv{A}{S_2}{S_1}$ est le moment au point $A$ du torseur cinématique. 
+\end{itemize}
+\end{defi}
+
+\subsection{Torseurs cinématiques des liaisons usuelles}
+Partant de la définition du torseur cinématique et de la connaissance du comportement cinématique des liaisons, il est aisé d'écrire le torseur associé à chacune des liaisons.
+
+\begin{center}\rotatebox{90}{
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\begin{tabular}{|p{.15\textwidth}|p{.12\textwidth}|p{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma 3d
+%\end{center} 
+& 
+%\begin{center}
+%DDL 
+%\end{center}& 
+%\begin{center}
+Torseur cinématique 
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/encastrement_sw}
+\end{center}
+%&
+%&
+&  
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+
+
+\begin{center}\rotatebox{90}{
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\begin{tabular}{|p{.15\textwidth}|p{.12\textwidth}|p{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma spatial
+%\end{center} 
+& 
+%\begin{center}
+%DDL 
+%\end{center}& 
+%\begin{center}
+Torseur cinématique 
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_3d}
+\end{center}
+%&  
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotuled_sw}
+\end{center}
+& %&
+%\begin{center}
+%\includegraphics[height=1.5cm]{png/rotuled_3d}
+%\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/lineaire_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/annulaire_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_sw}
+\end{center}
+&% &
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+Liaison glissière hélicoïdale
+%\includegraphics[height=1.5cm]{png/glissiere}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/helico_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{V}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+
+
+\subsection{Composition du torseur cinématique}
+\begin{resultat}
+\textbf{Composition du torseur cinématique}
+
+Le vecteur vitesse et le vecteur instantané pouvant être décomposés, on a donc :
+
+$$
+\torseurcin{V}{S_n}{S_0} = 
+\torseurcin{V}{S_n}{S_{n-1}} +... +\torseurcin{V}{S_1}{S_0}
+$$
+
+Ou encore : 
+
+$$
+\torseurl{\vecto{S_n}{S_0}}{\vectv{A}{S_n}{S_0}}{A}=
+\torseurl{\vecto{S_n}{S_{n-1}}}{\vectv{A}{S_n}{S_{n-1}}}{A}
++...+
+\torseurl{\vecto{S_1}{S_0}}{\vectv{A}{S_1}{S_0}}{A}
+$$
+
+\end{resultat}
+
+
+\section{Torseur des petits déplacements}
+\subsection{Définition}
+Le torseur cinématique est un outil permettant de modéliser les <<~grands déplacements~>> entre deux solides. Cependant, dans une liaison cinématique, peuvent exister de petits déplacements comme les jeux. 
+
+Les petits déplacements sont notés ainsi : 
+\begin{itemize}
+\item $\delta u_x$ petit déplacement en translation suivant l'axe $\vect{x}$;
+\item $\delta u_y$ petit déplacement en translation suivant l'axe $\vect{y}$;
+\item $\delta u_z$ petit déplacement en translation suivant l'axe $\vect{z}$;
+\item $\delta \theta_x$ petit déplacement en rotation autour de l'axe $\vect{x}$;
+\item $\delta \theta_y$ petit déplacement en rotation autour de l'axe $\vect{y}$;
+\item $\delta \theta_z$ petit déplacement en rotation autour de l'axe $\vect{z}$.
+\end{itemize}
+
+\begin{defi}
+\textbf{Torseur des petits déplacements}
+
+On note $\torseur{\mathcal{U}(S_2/S_1)}$ le torseurs des petits déplacements existants entre deux solides $S_2$ et $S_1$. On a : 
+$$\torseur{\mathcal{U}(S_2/S_1)}
+=
+\torseurl{\delta \theta_x \vect{x} +\delta \theta_y \vect{y} +\delta \theta_z \vect{z} }{
+\delta u_x \vect{x} +\delta u_y \vect{y} +\delta u_z \vect{z}}{P}
+=\torseurcol{\delta \theta_x}{\delta \theta_y}{\delta \theta_z}{\delta u_x}{\delta u_y}{\delta u_z}{P,\mathcal{R}}
+$$
+\end{defi}
+
+
+\subsection{Torseurs des petits déplacements des liaisons usuelles}
+Partant de la définition du torseur des petits déplacements et de la connaissance du comportement cinématique des liaisons, il est aisé d'écrire le torseur associé à chacune des liaisons.
+
+\begin{center}\rotatebox{90}{
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\begin{tabular}{|p{.15\textwidth}|p{.12\textwidth}|p{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma 3d
+%\end{center} 
+& 
+%\begin{center}
+%DDL 
+%\end{center}& 
+%\begin{center}
+Torseur petits dep.
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/encastrement_sw}
+\end{center}
+%&
+%&
+&  
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+
+
+\begin{center}
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\rotatebox{90}{
+\begin{tabular}{|m{.15\textwidth}|m{.12\textwidth}|m{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma 3d
+%\end{center}
+%& 
+%\begin{center}
+%DDL 
+%\end{center}
+& 
+%\begin{center}
+Torseur petits dép. 
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_3d}
+\end{center}
+%&  
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotuled_sw}
+\end{center}
+& %&
+%\begin{center}
+%\includegraphics[height=1.5cm]{png/rotuled_3d}
+%\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/lineaire_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/annulaire_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_sw}
+\end{center}
+&% &
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+Liaison glissière hélicoïdale
+%\includegraphics[height=1.5cm]{png/glissiere}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/helico_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+
 \begin{thebibliography}{2}
 \bibitem[1]{jpp} Jean-Pierre Pupier, Les Torseurs, Cours de mécanique, lycée Rouvière.
 \end{thebibliography}
 \end{document}
+
 
 
 \end{document}
