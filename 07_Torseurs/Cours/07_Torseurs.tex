@@ -644,6 +644,97 @@ $$
 \subsection{Torseurs des petits déplacements des liaisons usuelles}
 Partant de la définition du torseur des petits déplacements et de la connaissance du comportement cinématique des liaisons, il est aisé d'écrire le torseur associé à chacune des liaisons.
 
+
+\ifthenelse{\boolean{prof}}{
+\begin{center}
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\rotatebox{90}{
+\begin{tabular}{|m{.15\textwidth}|m{.12\textwidth}|m{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma 3d
+%\end{center}
+%& 
+%\begin{center}
+%DDL 
+%\end{center}
+& 
+%\begin{center}
+Torseur petits dép. 
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotule_3d}
+\end{center}
+%&  
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rotuled_sw}
+\end{center}
+& %&
+%\begin{center}
+%\includegraphics[height=1.5cm]{png/rotuled_3d}
+%\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\delta \theta_x}{\delta \theta_y}{\delta \theta_z}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/lineaire_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/annulaire_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\delta \theta_x}{\delta \theta_y}{\delta \theta_z}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivot_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_sw}
+\end{center}
+&% &
+\begin{center}
+\includegraphics[height=1.5cm]{png/pivotg_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+Liaison glissière hélicoïdale
+%\includegraphics[height=1.5cm]{png/glissiere}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/helico_3d}
+\end{center}
+% & 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+
+
 \begin{center}\rotatebox{90}{
 %\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
 \begin{tabular}{|p{.15\textwidth}|p{.12\textwidth}|p{.22\textwidth}|}
@@ -805,6 +896,80 @@ Liaison glissière hélicoïdale
 \hline
 \end{tabular}}
 \end{center}
+}{\begin{center}\rotatebox{90}{
+%\begin{tabular}{|p{.15\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.1\textwidth}|p{.22\textwidth}|}
+\begin{tabular}{|p{.15\textwidth}|p{.12\textwidth}|p{.22\textwidth}|}
+\hline
+% & 
+%\begin{center}
+%Schémas plans
+%\end{center} 
+& 
+%\begin{center}
+Schéma 3d
+%\end{center} 
+& 
+%\begin{center}
+%DDL 
+%\end{center}& 
+%\begin{center}
+Torseur petits dep.
+%\end{center} 
+\\
+\hline
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/encastrement_sw}
+\end{center}
+%&
+%&
+&  
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/ponctuelle_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/rectiligne_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/plan_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_sw}
+\end{center}
+& %&
+\begin{center}
+\includegraphics[height=1.5cm]{png/glissiere_3d}
+\end{center}
+%& 
+&$$\torseurc{\mathcal{U}\left(S_2/S_1\right)}{\quad}{}{}{}{}{}{\_}$$\\
+\hline
+\end{tabular}}
+\end{center}
+}
+
 
 \begin{thebibliography}{2}
 \bibitem[1]{jpp} Jean-Pierre Pupier, Les Torseurs, Cours de mécanique, lycée Rouvière.
