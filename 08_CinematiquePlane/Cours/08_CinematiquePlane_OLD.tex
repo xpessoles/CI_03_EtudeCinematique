@@ -1,66 +1,86 @@
-\documentclass[10pt]{article}
-\input{style/coursHeadings}
-\input{style/programHeadings}
-\input{style/macros_SII}
-\input{style/macros_Titres}
-\input{style/macros_Frames}
-
-%Si le boolen xp est vrai : compilation pour xabi
-%Sinon compilation Damien
-\newboolean{xp}
-\setboolean{xp}{true}
-
-\newboolean{prof}
-\setboolean{prof}{true}
+\documentclass[11pt,oneside]{article}
+\input{coursHeadings}
 
 \usepackage[%
-    pdftitle={Représentation des nombres},
+    pdftitle={Cinématique - Cinématique graphique - Mécanismes},
     pdfauthor={Xavier Pessoles},
     colorlinks=true,
     linkcolor=blue,
     citecolor=magenta]{hyperref}
-
-
-\def\discipline{Informatique}
-\def\xxtitre{\ifthenelse{\boolean{xp}}{
-CI 3 -- CIN : Étude du comportement cinématique des systèmes}{
-Chapitre  -- }}
-
-\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
-Chapitre 8 --  Étude graphique des mouvements plans}{
-Partie  -- }}
-
-\def\xxauteur{\ifthenelse{\boolean{xp}}{
-\noindent 2013 -- 2014 \\
-Xavier \textsc{Pessoles}}{
-Damien \textsc{Iceta} \\ Xavier \textsc{Pessoles}}}
-
-\def\xxpied{\ifthenelse{\boolean{xp}}{
-CI 3 : CIN -- Cours\\
-Ch. 8 : Cinématique graphique}{
-\xxtitre}}
-
-\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
-2013 -- 2014 \\
-Xavier \textsc{Pessoles}}{
-Informatique - Cours}}
+\usepackage{schemabloc}
 
 
 
+% \makeatletter \let\ps@plain\ps@empty \makeatother
+%% DEBUT DU DOCUMENT
+%% =================
+\sloppy
+\hyphenpenalty 10000
+
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
 
 
-%---------------------------------------------------------------------------
+\colorlet{shadecolor}{orange!15}
+
+\newtheorem{theorem}{Theorem}
 
 
 \begin{document}
 
-\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+%------------- En tetes et Pieds de Pages ------------
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+\fancyhead[L]{%
+\noindent\noindent\begin{minipage}[c]{2.6cm}
+%Lycée Rouvière PTSI
+\includegraphics[width=2cm]{png/logo_ptsi.png}%
+\end{minipage}
+}
+
+\fancyhead[C]{\rule{12cm}{.5pt}}
+
+\fancyhead[R]{%
+\begin{minipage}[c]{3cm}
+\begin{flushright}
+\footnotesize{\textit{\textsf{Sciences Industrielles\\ pour l'Ingénieur}}}%
+\end{flushright}
+\end{minipage}
+}
+
+\renewcommand{\footrulewidth}{0.2pt}
+
+\fancyfoot[C]{\footnotesize{\bfseries \thepage}}
+\fancyfoot[L]{\footnotesize{2012 -- 2013} \\ X. \textsc{Pessoles}}
+\ifthenelse{\boolean{prof}}{%
+\fancyfoot[R]{\footnotesize{Cours -- CI 2 : Cinématique -- P}}
+}{%
+\fancyfoot[R]{\footnotesize{Cours -- CI 2 : Cinématique}}
+}
+
+
+
+\begin{center}
+ \huge\textsc{CI 3 -- Cinématique : Modélisation, prévision et vérification du comportement cinématiques des systèmes}
+\end{center}
+
+\begin{center}
+ \LARGE\textsc{Chapitre 5 -- Étude graphique des mouvements plans} 
+\end{center}
+
+\vspace{.5cm}
 
 \begin{center}
 \begin{tabular}{ccc}
-\includegraphics[height=3.5cm]{images/fig1} &
-\includegraphics[height=3.5cm]{images/fig2} &
-\includegraphics[height=5cm]{images/fig4} \\
+\includegraphics[height=3.5cm]{png/fig1} &
+\includegraphics[height=3.5cm]{png/fig2} &
+\includegraphics[height=5cm]{png/fig4} \\
 \textit{Système EPAS} & \textit{Schématisation 3D}&\textit{Modélisation plane}\\
 \end{tabular}
 \end{center}
@@ -72,18 +92,16 @@ On s'intéresse au déploiement de l'Échelle Pivotante Automatique à commande 
 Ce mouvement à la particularité d'être "plan". En effet, les liaisons qui constituent le mécanisme ne génèrent que des mouvements dans le plan $\left( \vect{x}; \vect{y}\right)$. Dans ce cas, il est possible d'utiliser des outils graphiques pour déterminer les vitesses de déplacement des solides. 
 
 \begin{prob}
-\textbf{Problématique :}
+\textsc{Problématique :}
 \begin{itemize}
 \item Comment déterminer graphiquement les vitesses des solides dans les systèmes mécaniques ?
 \end{itemize}
 \end{prob}
 
 \begin{savoir}
-\textbf{Savoirs :}
-
-Résoudre :
+\textsc{Savoirs :}
 \begin{itemize}
-\item Rés-C1-S2 : Déterminer graphiquement le champ des vecteurs vitesses des points d’un solide dans le cas de mouvements plan sur plan.
+\item Étudier les mouvements en utilisant l'équiprojectivité, la composition des vitesses, les notions de centre instantané de rotation, de base et de roulante.
 \end{itemize}
 \end{savoir}
 
@@ -131,27 +149,27 @@ $$
 \begin{minipage}[c]{.15\linewidth}
 $$\mathcal{L}(3/2)$$
 \begin{center}
-%\includegraphics[width=.9\textwidth}{images/}
+%\includegraphics[width=.9\textwidth}{png/}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.15\linewidth}
 $$\mathcal{L}(4/3)$$
 \begin{center}
-%\includegraphics[width=.9\textwidth}{images/}
+%\includegraphics[width=.9\textwidth}{png/}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.15\linewidth}
 $$\text{Sph\`ere cylindre}$$
 $$\text{de normale } \vect{x}$$
 \begin{center}
-%\includegraphics[width=.9\textwidth}{images/}
+%\includegraphics[width=.9\textwidth}{png/}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.15\linewidth}
 $$\text{Sph\`ere cylindre}$$
 $$\text{de normale } \vect{z}$$
 \begin{center}
-%\includegraphics[width=.9\textwidth}{images/}
+%\includegraphics[width=.9\textwidth}{png/}
 \end{center}
 \end{minipage}
 
@@ -190,7 +208,7 @@ $$
 Tracer $\vectv{B}{3}{4}$ et $\vectv{D}{4}{3}$.
 
 \begin{center}
-\includegraphics[width=4cm]{images/verin}
+\includegraphics[width=4cm]{png/verin}
 \end{center}
 
 \end{exemple}
@@ -210,13 +228,13 @@ $$
 \begin{minipage}[c]{.3\linewidth}
 Tracer $\vectv{B}{1}{0}$
 \begin{center}
-\includegraphics[width=\textwidth]{images/came}
+\includegraphics[width=\textwidth]{png/came}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.3\linewidth}
 \begin{center}
 Tracer $\vectv{C}{1}{0}$
-\includegraphics[width=\textwidth]{images/came}
+\includegraphics[width=\textwidth]{png/came}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.3\linewidth}
@@ -244,7 +262,7 @@ $$
 \textit{Déterminer $\vectv{D}{5}{3}$ et $\vectv{D}{5}{2}$.}
 
 \begin{center}
-\includegraphics[width=7cm]{images/point}
+\includegraphics[width=7cm]{png/point}
 \end{center}
 
 \end{exemple}
@@ -264,7 +282,7 @@ $$
 \textit{Interprétation graphique}
 
 \begin{center}
-\includegraphics[width=6cm]{images/ballon1}
+\includegraphics[width=6cm]{png/ballon1}
 \end{center}
 \end{exemple}
 
@@ -338,7 +356,7 @@ $\vectv{A}{S_2}{S_1}$ et $\vectv{B}{S_2}{S_1}$ étant connu, $I_{12}$ est à l'i
 \textit{Interprétation graphique}
 
 \begin{center}
-\includegraphics[width=6cm]{images/ballon2}
+\includegraphics[width=6cm]{png/ballon2}
 \end{center}
 \end{exemple}
 
@@ -373,12 +391,12 @@ Système à double excentrique (transformation d'un mouvement de rotation contin
 
 \begin{minipage}[c]{.4\linewidth}
 \begin{center}
-\includegraphics[width=\textwidth]{images/img6_1}
+\includegraphics[width=\textwidth]{png/img6_1}
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}[c]{.5\linewidth}
 \begin{center}
-\includegraphics[width=\textwidth]{images/img6}
+\includegraphics[width=\textwidth]{png/img6}
 \end{center}
 \end{minipage}
 Mouvement de $1/0$ rotation autour de l'axe $(O_1,\vect{z_0})$ : CIR $I_{1/0}=O_1$. 
