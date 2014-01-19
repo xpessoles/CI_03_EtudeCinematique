@@ -29,7 +29,6 @@ Chapitre  -- }}
 \def\xxsoustitre{\ifthenelse{\boolean{xp}}{
 Chapitre 8 --  Étude graphique des mouvements plans}{
 Partie  -- }}
-
 \def\xxauteur{\ifthenelse{\boolean{xp}}{
 \noindent 2013 -- 2014 \\
 Xavier \textsc{Pessoles}}{
@@ -315,16 +314,19 @@ $$
 $\{\mathcal{V}\}$ est un glisseur si et seulement si :
 \begin{itemize}
 \item $\vecto{S_2}{S_1}\neq \vect{0}$;
-\item $\vecto{S_2}{S_1} \cdot \vectv{A}{S_2}{S_1} = \vect{0}$.
+\item $\vecto{S_2}{S_1} \cdot \vectv{A}{S_2}{S_1} = 0$.
 \end{itemize}
 \end{defi}
 
 \begin{resultat}
 \textbf{Centre instantané de rotation - CIR}
 
-En conséquence, en cinématique plane, le torseur cinématique est un glisseur. Il existe donc un point $I$ tel $\vectv{I}{S_2}{S_1}= \vect{0}$. 
+Au vu de la forme des torseurs en cinématique plane, le torseur cinématique est un glisseur. Il existe donc un point $I$ tel $\vectv{I}{S_2}{S_1}= \vect{0}$. 
 
-$I_{21}$ est appelé le centre instantané de rotation du solide 1 par rapport au solide 2. 
+$I$ est appelé le centre instantané de rotation du solide 1 par rapport au solide 2. On le note $I_{21}$.
+
+L'axe instantané est de même direction que $\vecto{S_2}{S_1}$. Il est perpendiculaire au plan du mouvement.
+
 \end{resultat}
 
 \begin{resultat}
@@ -348,7 +350,7 @@ $\vectv{A}{S_2}{S_1}$ et $\vectv{B}{S_2}{S_1}$ étant connu, $I_{12}$ est à l'i
 \begin{itemize}
 \item Pour un solide en translation, le CIR n'existe pas.
 \item Pour un solide en rotation autour d'un point fixe, le CIR est au centre de la liaison.
-\item Le CIR change à chaque instant.
+\item Pour un mouvement plan quelconque, le CIR change à chaque instant.
 \end{itemize}
 \end{rem}
 
