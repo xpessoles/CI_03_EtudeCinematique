@@ -1,0 +1,113 @@
+\documentclass[11pt,oneside]{article}
+\input{coursHeadings}
+
+\usepackage[%
+    pdftitle={TD Cinématique},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+
+% \makeatletter \let\ps@plain\ps@empty \makeatother
+%% DEBUT DU DOCUMENT
+%% =================
+\sloppy
+\hyphenpenalty 10000
+
+\newcommand{\Pointilles}[1][3]{%
+\multido{}{#1}{\makebox[\linewidth]{\dotfill}\\[\parskip]
+}}
+
+
+\begin{document}
+
+
+\newboolean{prof}
+\setboolean{prof}{true}
+%------------- En tetes et Pieds de Pages ------------
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+\fancyhead[L]{%
+\begin{minipage}[c]{1.6cm}
+\includegraphics[width=1.4cm]{png/logo_ptsi.png}%
+\end{minipage}
+\rule{2cm}{.5pt}
+}
+
+\fancyhead[C]{\rule{12cm}{.5pt}}
+
+\fancyhead[R]{%
+\begin{minipage}[c]{3cm}
+\begin{flushright}
+\footnotesize{\textit{\textsf{Sciences Industrielles\\ pour l'Ingénieur}}}%
+\end{flushright}
+\end{minipage}
+}
+
+\renewcommand{\footrulewidth}{0.2pt}
+
+\fancyfoot[C]{\footnotesize{\bfseries \thepage}}
+%\fancyfoot[L]{\footnotesize{2011 -- 2012} \\ X. \textsc{Pessoles}}
+\ifthenelse{\boolean{prof}}{%
+%\fancyfoot[R]{\footnotesize{TD -- CI 2 : Cinématique -- P}}
+}{%
+%\fancyfoot[R]{\footnotesize{TD -- CI 2 : Cinématique}}
+}
+
+
+%\begin{center}
+%\textit{Centre d'intérêt}
+%\end{center}
+
+\begin{center}
+ \LARGE\textsc{CI 2 -- Cinématique : Modélisation, prévision et vérification du comportement cinématiques des systèmes}
+\end{center}
+
+\begin{center}
+ \Large\textsc{Chapitre 5 -- Étude graphique des mouvements plans} 
+\end{center}
+
+\vspace{1cm}
+
+\section{Machine de poinçonnage}
+
+On étudie une machine de poinçonnage. Cette machine permet de faire des trous dans les pièces dont la forme le nécessite. Ces trous sont obtenus par arrachage de matière lors de la percussion à haute vitesse d'un outil (appelé poinçon) avec la pièce en question.
+
+\begin{center}
+\includegraphics[width=.9\textwidth]{png/fig1}
+\end{center}
+
+L'objectif est de vérifier le critère de vitesse du déplacement de poinçon du cahier des charges.
+
+Le schéma cinématique de la mise en mouvement du poinçon, dans la machine est fournit sur la figure de la page suivante. Un moteur impose un mouvement de rotation de la pièce 1. Ce mouvement est transformé par les pièces 2, 3 et 4, jusqu'à être changé en mouvement de translation alternative du poinçon 5. 
+
+\paragraph{}
+\textit{La pièce 1 tourne à 200 tr/min. La distance OA est de 4cm. Déterminer $||\vectv{A}{1}{0}||$.}
+
+\paragraph{}
+\textit{Le sens de rotation de la pièce 1 est donné sur la figure. Tracer sur cette figure $\vectv{A}{1}{0}$. Échelle graphique : $1m/s = 6cm$.}
+
+\paragraph{}
+\textit{Déterminer, en argumentant votre réponse, $\vectv{B}{2}{0}$.}
+
+\paragraph{}
+\textit{Déterminer, en argumentant votre réponse, $\vectv{D}{5}{0}$.}
+
+\paragraph{}
+\textit{Conclure quant à la capacité de la machine de poinçonnage à satisfaire le critère de vitesse de déplacement du cahier des charges.}
+
+
+\begin{center}
+\includegraphics[width=.6\textwidth]{png/fig2}
+\end{center}
+
+
+\begin{center}
+\includegraphics[width=.6\textwidth]{png/fig2}
+\end{center}
+
+\end{document}
